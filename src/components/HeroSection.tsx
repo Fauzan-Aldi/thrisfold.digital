@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { HeroBackground } from './hero/HeroBackground';
+import { HeroNavbar } from './hero/HeroNavbar';
 import { HeroContent } from './hero/HeroContent';
-import { motion, useScroll, useTransform } from 'motion/react';
 
 interface HeroSectionProps {
   onOpenWhatsApp: (note?: string) => void;
@@ -9,32 +9,24 @@ interface HeroSectionProps {
 }
 
 export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenWhatsApp, darkMode }) => {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const { scrollY } = useScroll();
-  
-  // Scroll-based transforms for entire section
-  const sectionOpacity = useTransform(scrollY, [0, 400], [1, 0]);
-
-  // Mouse movement tracking for parallax
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
+  const [localDarkMode, setLocalDarkMode] = React.useState(darkMode);
 
   return (
-    <motion.section 
-      className="relative h-screen flex items-center justify-center overflow-hidden"
-      style={{ opacity: sectionOpacity }}
+    <section 
+      className="relative w-full overflow-hidden"
+      style={{
+        paddingBottom: '56.25%', // 16:9 aspect ratio
+        minHeight: '100vh'
+      }}
     >
-      {/* Background with Parallax & Clouds */}
-      <HeroBackground mousePosition={mousePosition} />
-
-      {/* Hero Content */}
-      <HeroContent onOpenWhatsApp={onOpenWhatsApp} darkMode={darkMode} />
-    </motion.section>
+      {/* Background Image */}
+      <HeroBackground mousePosition={{ x: 0, y: 0 }} />
+      
+      {/* Navbar with real text */}
+      <HeroNavbar darkMode={localDarkMode} setDarkMode={setLocalDarkMode} />
+      
+      {/* Hero Content with real text */}
+      <HeroContent onOpenWhatsApp={onOpenWhatsApp} />
+    </section>
   );
 };

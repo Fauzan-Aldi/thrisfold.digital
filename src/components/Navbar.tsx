@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { MessageSquare, Sun, Moon, Menu, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { Language } from '../types';
 
 interface NavbarProps {
@@ -47,23 +47,20 @@ export const Navbar: React.FC<NavbarProps> = ({
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out ${
         scrolled
-          ? 'bg-[#1a1d10]/80 backdrop-blur-2xl border-b border-white/10 shadow-2xl py-3'
+          ? 'bg-white/80 backdrop-blur-2xl shadow-lg py-4'
           : 'bg-transparent py-6'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between">
         {/* Logo */}
-        <a href="#home" onClick={(e) => handleSmoothScroll(e, 'home')} className="flex items-center gap-2 group">
-          <div className="w-8 h-8 rounded-full bg-[#d4ff00] flex items-center justify-center font-bold text-[#171e00] text-sm shadow-lg group-hover:scale-110 transition-transform duration-300">
-            b
-          </div>
-          <span className="text-xl sm:text-2xl font-black font-['Hanken_Grotesk'] tracking-tight text-white">
+        <a href="#home" onClick={(e) => handleSmoothScroll(e, 'home')} className="flex items-center group">
+          <span className="text-2xl font-black font-['Hanken_Grotesk'] tracking-tight text-white">
             bayu<span className="text-[#d4ff00]">.digital</span>
           </span>
         </a>
 
         {/* Desktop Nav Links */}
-        <nav className="hidden md:flex items-center gap-8 font-['Geist'] text-sm tracking-wide font-semibold">
+        <nav className="hidden md:flex items-center gap-10 font-['Geist'] text-sm font-semibold">
           <a
             href="#home"
             onClick={(e) => handleSmoothScroll(e, 'home')}
@@ -106,59 +103,19 @@ export const Navbar: React.FC<NavbarProps> = ({
           </a>
         </nav>
 
-        {/* Action Controls & CTA */}
-        <div className="hidden md:flex items-center gap-4">
-          {/* Theme Toggle */}
-          <button
-            onClick={() => setDarkMode(!darkMode)}
-            className="p-2 rounded-full transition-all duration-300 bg-white/10 text-white hover:bg-white/20 backdrop-blur-md"
-            aria-label="Toggle Dark Mode"
-          >
-            {darkMode ? <Sun size={18} /> : <Moon size={18} />}
-          </button>
-
-          {/* CTA Button */}
-          <button
-            onClick={() => onOpenWhatsApp()}
-            className="bg-[#d4ff00] hover:bg-[#caf300] text-[#171e00] font-bold font-['Manrope'] text-sm px-5 py-2.5 rounded-full flex items-center gap-2 transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg hover:shadow-[#d4ff00]/50"
-          >
-            <MessageSquare size={16} className="fill-[#171e00]" />
-            <span>Konsultasi</span>
-          </button>
-        </div>
-
         {/* Mobile Menu Toggle */}
-        <div className="flex md:hidden items-center gap-2">
-          <button
-            onClick={() => setDarkMode(!darkMode)}
-            className="p-2 rounded-full bg-white/10 text-white backdrop-blur-md hover:bg-white/20 transition-all"
-          >
-            {darkMode ? <Sun size={18} /> : <Moon size={18} />}
-          </button>
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 rounded-lg text-white hover:bg-white/10 transition-all"
-          >
-            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </div>
+        <button
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          className="md:hidden p-2 rounded-lg text-white hover:bg-white/10 transition-all"
+        >
+          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
       </div>
 
       {/* Mobile Menu Overlay */}
       {mobileMenuOpen && (
-        <div className={`md:hidden border-b px-6 py-6 space-y-4 bg-[#1a1d10]/95 backdrop-blur-2xl border-white/10 text-white`}>
-          <div className="flex justify-between items-center pb-2 border-b border-white/10">
-            <span className="text-xs font-bold text-[#d4ff00] uppercase tracking-wider">
-              Navigation Menu
-            </span>
-            <button
-              onClick={() => setLanguage(language === 'id' ? 'en' : 'id')}
-              className="text-xs font-bold px-2.5 py-1 rounded-full bg-[#2f3223] text-white"
-            >
-              Bahasa: {language.toUpperCase()}
-            </button>
-          </div>
-          <div className="flex flex-col gap-3 font-semibold text-base">
+        <div className="md:hidden bg-[#1a1d10]/95 backdrop-blur-2xl border-t border-white/10 px-6 py-6">
+          <div className="flex flex-col gap-4 font-semibold text-base text-white">
             <a
               href="#home"
               onClick={(e) => { handleSmoothScroll(e, 'home'); }}
@@ -195,17 +152,6 @@ export const Navbar: React.FC<NavbarProps> = ({
               Kontak
             </a>
           </div>
-
-          <button
-            onClick={() => {
-              setMobileMenuOpen(false);
-              onOpenWhatsApp();
-            }}
-            className="w-full mt-4 bg-[#d4ff00] text-[#171e00] font-bold py-3 rounded-full flex items-center justify-center gap-2 shadow-lg hover:bg-[#caf300] transition-all"
-          >
-            <MessageSquare size={18} />
-            <span>Konsultasi via WhatsApp</span>
-          </button>
         </div>
       )}
     </header>
