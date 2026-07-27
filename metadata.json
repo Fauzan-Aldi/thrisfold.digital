@@ -1,0 +1,6 @@
+{
+  "name": "bayu digital - Konsultan Digital",
+  "description": "High-fidelity landing page and interactive portal for bayu digital consulting agency specializing in hotel booking systems, ERP, and AI digital solutions.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

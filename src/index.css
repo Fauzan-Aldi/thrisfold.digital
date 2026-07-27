@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Manrope', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Hanken Grotesk', sans-serif;
+  }
+
+  .font-geist {
+    font-family: 'Geist', sans-serif;
+  }
+}
+
+/* Custom animations & glow */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 15px rgba(212, 255, 0, 0.4); }
+  50% { box-shadow: 0 0 25px rgba(212, 255, 0, 0.8); }
+}
+
+/* Cloud animations - infinite smooth horizontal movement */
+@keyframes cloudLeft {
+  0% { 
+    transform: translateX(100vw);
+    opacity: 0;
+  }
+  5% {
+    opacity: 0.6;
+  }
+  95% {
+    opacity: 0.6;
+  }
+  100% { 
+    transform: translateX(-200px);
+    opacity: 0;
+  }
+}
+
+@keyframes cloudRight {
+  0% { 
+    transform: translateX(-200px);
+    opacity: 0;
+  }
+  5% {
+    opacity: 0.6;
+  }
+  95% {
+    opacity: 0.6;
+  }
+  100% { 
+    transform: translateX(100vw);
+    opacity: 0;
+  }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: pulseGlow 2.5s ease-in-out infinite;
+}
+
+.animate-cloud-left {
+  animation: cloudLeft linear infinite;
+}
+
+.animate-cloud-right {
+  animation: cloudRight linear infinite;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f4f5df;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c5c9ac;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #536600;
+}
