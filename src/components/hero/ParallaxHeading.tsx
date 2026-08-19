@@ -20,7 +20,7 @@ export const ParallaxHeading: React.FC<ParallaxHeadingProps> = ({ darkMode }) =>
           style={{ x: heading1X }}
           className="will-change-transform"
         >
-          Konsultan Digital<span className="text-[#d4ff00]">.</span>
+          Konsultan Digital<span className="text-[#0EA5E9]">.</span>
         </motion.div>
         
         {/* Second Line - Moves Right on Scroll */}
@@ -29,11 +29,11 @@ export const ParallaxHeading: React.FC<ParallaxHeadingProps> = ({ darkMode }) =>
           className="will-change-transform mt-2"
         >
           <span className="relative inline-block">
-            <span className="bg-[#d4ff00] text-[#171e00] px-4 py-2 rounded-2xl inline-block">
+            <span className="bg-[#0EA5E9] text-[#0d0d0d] px-4 py-2 rounded-2xl inline-block">
               Bisnis
             </span>
           </span>{' '}
-          <span className="text-white">Kamu</span><span className="text-[#d4ff00]">.</span>
+          <span className="text-white">Kamu</span><span className="text-[#0EA5E9]">.</span>
         </motion.div>
       </h1>
     </div>

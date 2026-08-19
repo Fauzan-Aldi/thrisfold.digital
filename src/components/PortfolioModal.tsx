@@ -34,7 +34,7 @@ export const PortfolioModal: React.FC<PortfolioModalProps> = ({
 
         {/* Header Category & Badge */}
         <div className="flex items-center gap-3 mb-3">
-          <span className="text-xs font-bold px-3 py-1 rounded-full bg-[#d4ff00] text-[#171e00] font-['Geist']">
+          <span className="text-xs font-bold px-3 py-1 rounded-full bg-[#0EA5E9] text-[#0d0d0d] font-['Geist']">
             {project.category}
           </span>
           <span className="text-xs font-medium text-[#757a60] dark:text-[#c5c9ac]">
@@ -58,7 +58,7 @@ export const PortfolioModal: React.FC<PortfolioModalProps> = ({
               <span className="text-xs text-[#757a60] dark:text-[#c5c9ac] font-['Geist'] block uppercase tracking-wider">
                 {m.label}
               </span>
-              <span className="text-xl sm:text-2xl font-black font-['Hanken_Grotesk'] text-[#536600] dark:text-[#d4ff00]">
+              <span className="text-xl sm:text-2xl font-black font-['Hanken_Grotesk'] text-[#0EA5E9] dark:text-[#0EA5E9]">
                 {m.value}
               </span>
             </div>
@@ -67,7 +67,7 @@ export const PortfolioModal: React.FC<PortfolioModalProps> = ({
 
         {/* Description */}
         <div className="space-y-4 mb-6">
-          <h3 className="text-sm font-bold uppercase tracking-wider text-[#536600] dark:text-[#d4ff00] font-['Geist']">
+          <h3 className="text-sm font-bold uppercase tracking-wider text-[#0EA5E9] dark:text-[#0EA5E9] font-['Geist']">
             Gambaran Fitur & Solusi
           </h3>
           <p className="text-sm sm:text-base leading-relaxed text-[#444932] dark:text-[#e2e4cf]">
@@ -77,7 +77,7 @@ export const PortfolioModal: React.FC<PortfolioModalProps> = ({
           <div className="space-y-2 pt-2">
             {project.fullDetails.map((detail, idx) => (
               <div key={idx} className="flex items-start gap-2 text-sm text-[#1a1d10] dark:text-[#f9fbe5]">
-                <div className="w-4 h-4 rounded-full bg-[#d4ff00] text-[#171e00] flex items-center justify-center shrink-0 mt-0.5">
+                <div className="w-4 h-4 rounded-full bg-[#0EA5E9] text-[#0d0d0d] flex items-center justify-center shrink-0 mt-0.5">
                   <Check size={12} strokeWidth={3} />
                 </div>
                 <span>{detail}</span>
@@ -110,7 +110,7 @@ export const PortfolioModal: React.FC<PortfolioModalProps> = ({
               onClose();
               onOpenWhatsApp(`Halo bayu digital, saya ingin konsultasi pembuatan sistem serupa ${project.title}.`);
             }}
-            className="flex-1 bg-[#d4ff00] hover:bg-[#caf300] text-[#171e00] font-bold py-3.5 rounded-full flex items-center justify-center gap-2 shadow-md transition-transform hover:scale-105"
+            className="flex-1 bg-[#0EA5E9] hover:bg-[#0EA5E9] text-[#0d0d0d] font-bold py-3.5 rounded-full flex items-center justify-center gap-2 shadow-md transition-transform hover:scale-105"
           >
             <MessageSquare size={18} />
             <span>Buatkan Sistem Seperti Ini</span>

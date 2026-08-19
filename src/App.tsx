@@ -44,6 +44,16 @@ export default function App() {
     <div className={`min-h-screen transition-colors duration-300 font-['Manrope'] ${
       darkMode ? 'bg-[#1a1d10] text-[#f9fbe5]' : 'bg-[#f9fbe5] text-[#1a1d10]'
     }`}>
+      {/* Global sticky Navbar */}
+      <Navbar
+        language={language}
+        setLanguage={setLanguage}
+        darkMode={darkMode}
+        setDarkMode={setDarkMode}
+        onOpenWhatsApp={handleOpenWhatsApp}
+        onOpenEstimator={handleOpenEstimator}
+      />
+
       {/* Main Single Column Scrollable Content */}
       <main id="home">
         {/* Top Hero Section - Full Image */}

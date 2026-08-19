@@ -32,8 +32,8 @@ export const HeroNavbar: React.FC<HeroNavbarProps> = ({ darkMode, setDarkMode })
             className="flex items-center gap-1 group cursor-pointer"
           >
             <span className="text-2xl sm:text-3xl lg:text-4xl font-black font-['Space_Grotesk'] tracking-tight">
-              <span className="text-black">trifolds</span>
-              <span className="text-[#d4ff00]">.digital</span>
+              <span className="text-black">karsa</span>
+              <span className="text-[#0EA5E9]">.digital</span>
             </span>
           </button>
 
@@ -41,26 +41,26 @@ export const HeroNavbar: React.FC<HeroNavbarProps> = ({ darkMode, setDarkMode })
           <div className="hidden md:flex items-center gap-10 lg:gap-16">
             <button
               onClick={() => handleNavClick('layanan')}
-              className="text-black hover:text-[#d4ff00] font-semibold text-base lg:text-lg transition-colors duration-300"
+              className="text-black hover:text-[#0EA5E9] font-semibold text-base lg:text-lg transition-colors duration-300"
             >
               Layanan
             </button>
             <button
               onClick={() => handleNavClick('portfolio')}
-              className="text-black hover:text-[#d4ff00] font-semibold text-base lg:text-lg transition-colors duration-300"
+              className="text-black hover:text-[#0EA5E9] font-semibold text-base lg:text-lg transition-colors duration-300"
             >
               Portfolio
             </button>
             <div className="w-px h-8 bg-black/30 mx-4"></div>
             <button
               onClick={() => setLanguage(language === 'ID' ? 'EN' : 'ID')}
-              className="text-black hover:text-[#d4ff00] font-semibold text-base lg:text-lg transition-colors duration-300 whitespace-nowrap"
+              className="text-black hover:text-[#0EA5E9] font-semibold text-base lg:text-lg transition-colors duration-300 whitespace-nowrap"
             >
               {language} / {language === 'ID' ? 'EN' : 'ID'}
             </button>
             <button
               onClick={() => setDarkMode(!darkMode)}
-              className="text-black hover:text-[#d4ff00] transition-colors duration-300 p-2 ml-2"
+              className="text-black hover:text-[#0EA5E9] transition-colors duration-300 p-2 ml-2"
               aria-label="Toggle theme"
             >
               {darkMode ? <Sun size={22} /> : <Moon size={22} />}
@@ -82,26 +82,26 @@ export const HeroNavbar: React.FC<HeroNavbarProps> = ({ darkMode, setDarkMode })
             <div className="flex flex-col gap-6">
               <button
                 onClick={() => handleNavClick('layanan')}
-                className="text-black hover:text-[#d4ff00] font-semibold text-xl py-2 text-left transition-colors duration-300"
+                className="text-black hover:text-[#0EA5E9] font-semibold text-xl py-2 text-left transition-colors duration-300"
               >
                 Layanan
               </button>
               <button
                 onClick={() => handleNavClick('portfolio')}
-                className="text-black hover:text-[#d4ff00] font-semibold text-xl py-2 text-left transition-colors duration-300"
+                className="text-black hover:text-[#0EA5E9] font-semibold text-xl py-2 text-left transition-colors duration-300"
               >
                 Portfolio
               </button>
               <div className="flex items-center gap-6 pt-4 border-t border-black/10">
                 <button
                   onClick={() => setLanguage(language === 'ID' ? 'EN' : 'ID')}
-                  className="text-black hover:text-[#d4ff00] font-semibold text-lg transition-colors duration-300"
+                  className="text-black hover:text-[#0EA5E9] font-semibold text-lg transition-colors duration-300"
                 >
                   {language} / {language === 'ID' ? 'EN' : 'ID'}
                 </button>
                 <button
                   onClick={() => setDarkMode(!darkMode)}
-                  className="text-black hover:text-[#d4ff00] p-2 transition-colors duration-300"
+                  className="text-black hover:text-[#0EA5E9] p-2 transition-colors duration-300"
                 >
                   {darkMode ? <Sun size={22} /> : <Moon size={22} />}
                 </button>

@@ -24,13 +24,9 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 30) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
+      setScrolled(window.scrollY > 60);
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -45,112 +41,102 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-400 ease-out ${
         scrolled
-          ? 'bg-white/80 backdrop-blur-2xl shadow-lg py-4'
+          ? 'bg-[#f4f5df]/90 backdrop-blur-xl shadow-sm py-3 border-b border-[#c5c9ac]/40'
           : 'bg-transparent py-6'
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between">
+
         {/* Logo */}
-        <a href="#home" onClick={(e) => handleSmoothScroll(e, 'home')} className="flex items-center group">
-          <span className="text-2xl font-black font-['Hanken_Grotesk'] tracking-tight text-white">
-            bayu<span className="text-[#d4ff00]">.digital</span>
+        <a href="#home" onClick={(e) => handleSmoothScroll(e, 'home')} className="flex items-center">
+          <span className={`text-2xl font-black font-['Hanken_Grotesk'] tracking-tight transition-colors duration-300 ${
+            scrolled ? 'text-[#0d0d0d]' : 'text-white'
+          }`}>
+            karsa<span className="text-[#0EA5E9]">.digital</span>
           </span>
         </a>
 
-        {/* Desktop Nav Links */}
-        <nav className="hidden md:flex items-center gap-10 font-['Geist'] text-sm font-semibold">
-          <a
-            href="#home"
-            onClick={(e) => handleSmoothScroll(e, 'home')}
-            className="relative text-white transition-all duration-300 hover:text-[#d4ff00] group"
-          >
-            Home
-            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#d4ff00] transition-all duration-300 group-hover:w-full"></span>
-          </a>
+        {/* Desktop Nav */}
+        <nav className="hidden md:flex items-center gap-8 font-['Geist'] text-sm font-semibold">
           <a
             href="#layanan"
             onClick={(e) => handleSmoothScroll(e, 'layanan')}
-            className="relative text-white transition-all duration-300 hover:text-[#d4ff00] group"
+            className={`relative transition-colors duration-300 group ${
+              scrolled ? 'text-[#0d0d0d] hover:text-[#0EA5E9]' : 'text-white hover:text-[#0EA5E9]'
+            }`}
           >
             Layanan
-            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#d4ff00] transition-all duration-300 group-hover:w-full"></span>
+            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#0EA5E9] transition-all duration-300 group-hover:w-full rounded-full" />
           </a>
           <a
             href="#portfolio"
             onClick={(e) => handleSmoothScroll(e, 'portfolio')}
-            className="relative text-white transition-all duration-300 hover:text-[#d4ff00] group"
+            className={`relative transition-colors duration-300 group ${
+              scrolled ? 'text-[#0d0d0d] hover:text-[#0EA5E9]' : 'text-white hover:text-[#0EA5E9]'
+            }`}
           >
             Portfolio
-            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#d4ff00] transition-all duration-300 group-hover:w-full"></span>
+            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#0EA5E9] transition-all duration-300 group-hover:w-full rounded-full" />
           </a>
-          <a
-            href="#cara-kerja"
-            onClick={(e) => handleSmoothScroll(e, 'cara-kerja')}
-            className="relative text-white transition-all duration-300 hover:text-[#d4ff00] group"
+
+          {/* Separator */}
+          <span className={`w-px h-5 ${scrolled ? 'bg-[#c5c9ac]' : 'bg-white/40'}`} />
+
+          {/* Language toggle */}
+          <button
+            onClick={() => setLanguage(language === 'id' ? 'en' : 'id')}
+            className={`transition-colors duration-300 font-semibold ${
+              scrolled ? 'text-[#0d0d0d] hover:text-[#0EA5E9]' : 'text-white hover:text-[#0EA5E9]'
+            }`}
           >
-            Tentang
-            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#d4ff00] transition-all duration-300 group-hover:w-full"></span>
-          </a>
-          <a
-            href="#harga"
-            onClick={(e) => handleSmoothScroll(e, 'harga')}
-            className="relative text-white transition-all duration-300 hover:text-[#d4ff00] group"
-          >
-            Kontak
-            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#d4ff00] transition-all duration-300 group-hover:w-full"></span>
-          </a>
+            {language === 'id' ? 'ID / EN' : 'EN / ID'}
+          </button>
+
+
         </nav>
 
-        {/* Mobile Menu Toggle */}
+        {/* Mobile toggle */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="md:hidden p-2 rounded-lg text-white hover:bg-white/10 transition-all"
+          className={`md:hidden p-2 rounded-lg transition-colors ${
+            scrolled ? 'text-[#0d0d0d] hover:bg-[#e8e9d8]' : 'text-white hover:bg-white/10'
+          }`}
         >
           {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-[#1a1d10]/95 backdrop-blur-2xl border-t border-white/10 px-6 py-6">
-          <div className="flex flex-col gap-4 font-semibold text-base text-white">
-            <a
-              href="#home"
-              onClick={(e) => { handleSmoothScroll(e, 'home'); }}
-              className="py-2 hover:text-[#d4ff00] transition-colors"
+        <div className={`md:hidden border-t px-6 py-6 ${
+          scrolled
+            ? 'bg-[#f4f5df] border-[#c5c9ac]/40'
+            : 'bg-[#1a1d10]/95 backdrop-blur-2xl border-white/10'
+        }`}>
+          <div className={`flex flex-col gap-4 font-semibold text-base ${
+            scrolled ? 'text-[#0d0d0d]' : 'text-white'
+          }`}>
+            {[
+              { label: 'Layanan', id: 'layanan' },
+              { label: 'Portfolio', id: 'portfolio' },
+            ].map(({ label, id }) => (
+              <a
+                key={id}
+                href={`#${id}`}
+                onClick={(e) => handleSmoothScroll(e, id)}
+                className="py-2 hover:text-[#0EA5E9] transition-colors"
+              >
+                {label}
+              </a>
+            ))}
+            <button
+              onClick={() => setLanguage(language === 'id' ? 'en' : 'id')}
+              className="py-2 text-left hover:text-[#0EA5E9] transition-colors"
             >
-              Home
-            </a>
-            <a
-              href="#layanan"
-              onClick={(e) => { handleSmoothScroll(e, 'layanan'); }}
-              className="py-2 hover:text-[#d4ff00] transition-colors"
-            >
-              Layanan
-            </a>
-            <a
-              href="#portfolio"
-              onClick={(e) => { handleSmoothScroll(e, 'portfolio'); }}
-              className="py-2 hover:text-[#d4ff00] transition-colors"
-            >
-              Portfolio
-            </a>
-            <a
-              href="#cara-kerja"
-              onClick={(e) => { handleSmoothScroll(e, 'cara-kerja'); }}
-              className="py-2 hover:text-[#d4ff00] transition-colors"
-            >
-              Tentang
-            </a>
-            <a
-              href="#harga"
-              onClick={(e) => { handleSmoothScroll(e, 'harga'); }}
-              className="py-2 hover:text-[#d4ff00] transition-colors"
-            >
-              Kontak
-            </a>
+              {language === 'id' ? 'ID / EN' : 'EN / ID'}
+            </button>
           </div>
         </div>
       )}

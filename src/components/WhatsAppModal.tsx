@@ -71,11 +71,11 @@ export const WhatsAppModal: React.FC<WhatsAppModalProps> = ({
 
         {/* Modal Header */}
         <div className="flex items-center gap-3 mb-4">
-          <div className="w-10 h-10 rounded-full bg-[#d4ff00] text-[#171e00] flex items-center justify-center font-bold">
-            <MessageSquare size={20} className="fill-[#171e00]" />
+          <div className="w-10 h-10 rounded-full bg-[#0EA5E9] text-[#0d0d0d] flex items-center justify-center font-bold">
+            <MessageSquare size={20} className="fill-[#0d0d0d]" />
           </div>
           <div>
-            <span className="text-[10px] font-bold uppercase tracking-wider text-[#536600] dark:text-[#d4ff00] font-['Geist']">
+            <span className="text-[10px] font-bold uppercase tracking-wider text-[#0EA5E9] dark:text-[#0EA5E9] font-['Geist']">
               Direct WhatsApp Support
             </span>
             <h3 className="font-['Hanken_Grotesk'] text-xl font-bold">Konsultasi Bisnis Fast Response</h3>
@@ -88,7 +88,7 @@ export const WhatsAppModal: React.FC<WhatsAppModalProps> = ({
 
         {isSentSimulation ? (
           <div className="py-12 text-center space-y-4 animate-scaleUp">
-            <div className="w-16 h-16 rounded-full bg-[#d4ff00] text-[#171e00] flex items-center justify-center mx-auto shadow-lg animate-bounce">
+            <div className="w-16 h-16 rounded-full bg-[#0EA5E9] text-[#0d0d0d] flex items-center justify-center mx-auto shadow-lg animate-bounce">
               <CheckCircle size={36} />
             </div>
             <h4 className="font-['Hanken_Grotesk'] text-2xl font-bold">Membuka WhatsApp...</h4>
@@ -108,7 +108,7 @@ export const WhatsAppModal: React.FC<WhatsAppModalProps> = ({
                 placeholder="Contoh: Budi Santoso"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className={`w-full px-4 py-2.5 rounded-xl text-sm border focus:outline-none focus:ring-2 focus:ring-[#d4ff00] ${
+                className={`w-full px-4 py-2.5 rounded-xl text-sm border focus:outline-none focus:ring-2 focus:ring-[#0EA5E9] ${
                   darkMode
                     ? 'bg-[#2f3223] border-[#444932] text-white placeholder-[#757a60]'
                     : 'bg-white border-[#c5c9ac] text-[#1a1d10] placeholder-[#757a60]'
@@ -126,7 +126,7 @@ export const WhatsAppModal: React.FC<WhatsAppModalProps> = ({
                 placeholder="Contoh: Hotel Grand Sunset / Kos Vanesa"
                 value={businessName}
                 onChange={(e) => setBusinessName(e.target.value)}
-                className={`w-full px-4 py-2.5 rounded-xl text-sm border focus:outline-none focus:ring-2 focus:ring-[#d4ff00] ${
+                className={`w-full px-4 py-2.5 rounded-xl text-sm border focus:outline-none focus:ring-2 focus:ring-[#0EA5E9] ${
                   darkMode
                     ? 'bg-[#2f3223] border-[#444932] text-white placeholder-[#757a60]'
                     : 'bg-white border-[#c5c9ac] text-[#1a1d10] placeholder-[#757a60]'
@@ -142,7 +142,7 @@ export const WhatsAppModal: React.FC<WhatsAppModalProps> = ({
                 <select
                   value={businessType}
                   onChange={(e) => setBusinessType(e.target.value)}
-                  className={`w-full px-3 py-2.5 rounded-xl text-xs sm:text-sm border focus:outline-none focus:ring-2 focus:ring-[#d4ff00] ${
+                  className={`w-full px-3 py-2.5 rounded-xl text-xs sm:text-sm border focus:outline-none focus:ring-2 focus:ring-[#0EA5E9] ${
                     darkMode ? 'bg-[#2f3223] border-[#444932] text-white' : 'bg-white border-[#c5c9ac] text-[#1a1d10]'
                   }`}
                 >
@@ -162,7 +162,7 @@ export const WhatsAppModal: React.FC<WhatsAppModalProps> = ({
                 <select
                   value={budget}
                   onChange={(e) => setBudget(e.target.value)}
-                  className={`w-full px-3 py-2.5 rounded-xl text-xs sm:text-sm border focus:outline-none focus:ring-2 focus:ring-[#d4ff00] ${
+                  className={`w-full px-3 py-2.5 rounded-xl text-xs sm:text-sm border focus:outline-none focus:ring-2 focus:ring-[#0EA5E9] ${
                     darkMode ? 'bg-[#2f3223] border-[#444932] text-white' : 'bg-white border-[#c5c9ac] text-[#1a1d10]'
                   }`}
                 >
@@ -183,7 +183,7 @@ export const WhatsAppModal: React.FC<WhatsAppModalProps> = ({
                 value={needs}
                 onChange={(e) => setNeeds(e.target.value)}
                 placeholder="Misal: Ingin membuat sistem booking hotel bebas komisi OTA dengan pembayaran QRIS..."
-                className={`w-full px-4 py-2.5 rounded-xl text-xs sm:text-sm border focus:outline-none focus:ring-2 focus:ring-[#d4ff00] ${
+                className={`w-full px-4 py-2.5 rounded-xl text-xs sm:text-sm border focus:outline-none focus:ring-2 focus:ring-[#0EA5E9] ${
                   darkMode
                     ? 'bg-[#2f3223] border-[#444932] text-white placeholder-[#757a60]'
                     : 'bg-white border-[#c5c9ac] text-[#1a1d10] placeholder-[#757a60]'
@@ -193,7 +193,7 @@ export const WhatsAppModal: React.FC<WhatsAppModalProps> = ({
 
             <button
               type="submit"
-              className="w-full mt-2 bg-[#d4ff00] hover:bg-[#caf300] text-[#171e00] font-bold py-3.5 rounded-full flex items-center justify-center gap-2 shadow-lg transition-transform hover:scale-105"
+              className="w-full mt-2 bg-[#0EA5E9] hover:bg-[#0EA5E9] text-[#0d0d0d] font-bold py-3.5 rounded-full flex items-center justify-center gap-2 shadow-lg transition-transform hover:scale-105"
             >
               <Send size={18} />
               <span>Kirim via WhatsApp Sekarang</span>

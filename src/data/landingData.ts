@@ -98,37 +98,37 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
 export const PROCESS_STEPS: ProcessStep[] = [
   {
     number: '01',
-    title: 'Kami tentuin kebutuhannya',
-    description: 'Konsultasi mendalam secara santai via WhatsApp atau video call untuk membedah masalah operasional, target bisnis, dan ekspektasi solusi digital yang kamu harapkan.',
-    deliverables: ['Ringkasan Kebutuhan System', 'Analisis Alur Kerja Bisnis', 'Rekomendasi Arsitektur'],
-    estimatedDays: '1-2 Hari'
+    title: 'Obrolin dulu kebutuhan kamu',
+    description: 'Cukup cerita singkat soal bisnis kamu via WhatsApp — kami yang ajukan pertanyaan yang tepat. Tidak perlu dokumen teknis, tidak perlu bisa IT. Santai dulu.',
+    deliverables: ['Sesi Tanya Jawab via WA', 'Pemetaan Masalah Bisnis', 'Nol Komitmen di Tahap Ini'],
+    estimatedDays: '1 Hari'
   },
   {
     number: '02',
-    title: 'Proposal yang mudah dibaca',
-    description: 'Kamu akan menerima dokumen rancangan transparan berisi scope pekerjaan, timeline yang jelas, biaya pasti tanpa biaya tersembunyi, dan gambaran wireframe awal.',
-    deliverables: ['Dokumen Scope & Fitur', 'Fixed Price Quote', 'Wireframe Demo Initial'],
-    estimatedDays: '2-3 Hari'
-  },
-  {
-    number: '03',
-    title: 'Kami kerjakan, kamu tetap update',
-    description: 'Proses coding dan pengembangan dilakukan secara agile. Kamu mendapatkan link preview staging live untuk memantau progress kapan saja tanpa perlu bertanya-tanya.',
-    deliverables: ['Live Staging URL', 'Weekly Progress Report', 'Direct Feedback Channel'],
-    estimatedDays: '1-3 Minggu'
-  },
-  {
-    number: '04',
-    title: 'Launch dan support',
-    description: 'Sistem dirilis ke domain utama bisnis kamu. Kami mendampingi proses pengujian awal, pelatihan tim operasional, serta garansi pemeliharaan teknis pasca-launch.',
-    deliverables: ['Deployment Domain & Server', 'Buku Panduan / Video Admin', 'Garansi Bug-Free 30 Hari'],
+    title: 'Kami rangkum dan sarankan solusi',
+    description: 'Dalam 1–2 hari kami kirim ringkasan: masalah yang kami tangkap, solusi yang kami sarankan, dan alasannya. Spesifik untuk bisnis kamu, bukan template umum.',
+    deliverables: ['Ringkasan Kebutuhan Sistem', 'Rekomendasi Solusi Spesifik', 'Estimasi Awal Waktu & Biaya'],
     estimatedDays: '1-2 Hari'
   },
   {
+    number: '03',
+    title: 'Proposal bersih, harga jelas',
+    description: 'Kami kirim proposal dengan scope yang tertulis jelas, harga tanpa biaya tersembunyi, dan timeline realistis. Kamu tahu persis apa yang dibayar dan apa yang didapat.',
+    deliverables: ['Dokumen Scope & Fitur', 'Fixed Price Quote', 'Timeline Pengerjaan'],
+    estimatedDays: '2-3 Hari'
+  },
+  {
+    number: '04',
+    title: 'Kami bangun, kamu tetap tahu',
+    description: 'Project berjalan tanpa kamu harus online terus. Kami beri update berkala dan hanya tanya kalau memang butuh keputusan dari kamu. Ada link staging buat pantau langsung.',
+    deliverables: ['Live Staging URL', 'Laporan Progress Mingguan', 'Channel Feedback Langsung'],
+    estimatedDays: '1-3 Minggu'
+  },
+  {
     number: '05',
-    title: 'Evaluasi & Pertumbuhan Berkelanjutan',
-    description: 'Setelah sistem berjalan, kami membantu menganalisis statistik penggunaan dan memberikan rekomendasi fitur baru untuk mendorong skala bisnis kamu lebih jauh.',
-    deliverables: ['SLA & Maintenance Plan', 'Analisis Okupansi / Performance', 'Opsi Skalabilitas System'],
+    title: 'Rilis dan kami tetap ada',
+    description: 'Sistem live bukan berarti kami pergi. Kami tetap bisa dihubungi untuk pertanyaan, penyesuaian kecil, atau langkah berikutnya. Relasi jangka panjang, bukan proyek sekali jalan.',
+    deliverables: ['Deployment ke Domain Utama', 'Panduan & Video Tutorial Admin', 'Garansi Bug-Free 30 Hari'],
     estimatedDays: 'Kontinu'
   }
 ];

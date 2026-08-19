@@ -68,7 +68,7 @@ export const HeroContent: React.FC<HeroContentProps> = ({ onOpenWhatsApp }) => {
   }, [words.length]);
 
   const handleWhatsAppClick = () => {
-    onOpenWhatsApp('Halo trifolds digital, saya ingin konsultasi mengenai sistem digital untuk bisnis saya.');
+    onOpenWhatsApp('Halo karsa digital, saya ingin konsultasi mengenai sistem digital untuk bisnis saya.');
   };
 
   const handleLayananClick = () => {
@@ -96,7 +96,7 @@ export const HeroContent: React.FC<HeroContentProps> = ({ onOpenWhatsApp }) => {
           </h1>
           <h1 className="font-['Space_Grotesk'] text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-tight">
             <span 
-              className="text-[#d4ff00] inline-block animate-word-fade"
+              className="text-[#0EA5E9] inline-block animate-word-fade"
               key={currentWordIndex}
               style={{
                 animation: 'wordFade 2s ease-in-out'
@@ -118,7 +118,7 @@ export const HeroContent: React.FC<HeroContentProps> = ({ onOpenWhatsApp }) => {
           {/* WhatsApp Button - Tanpa Icon */}
           <button
             onClick={handleWhatsAppClick}
-            className="bg-[#d4ff00] hover:bg-[#c9f000] text-black font-bold font-['Space_Grotesk'] text-base sm:text-lg px-8 py-4 sm:px-10 sm:py-5 rounded-full transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg"
+            className="bg-[#0EA5E9] hover:bg-[#c9f000] text-black font-bold font-['Space_Grotesk'] text-base sm:text-lg px-8 py-4 sm:px-10 sm:py-5 rounded-full transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg"
           >
             <span>Konsultasi via WhatsApp</span>
           </button>
