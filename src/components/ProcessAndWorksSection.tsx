@@ -71,9 +71,9 @@ const PortfolioList: React.FC<PortfolioListProps> = () => {
       className="relative overflow-visible"
       onMouseMove={handleMouseMove}
     >
-      {/* Floating image — follows cursor with smooth lerp */}
+      {/* Floating image — hanya desktop, ikut kursor */}
       <div
-        className="pointer-events-none absolute z-30"
+        className="pointer-events-none absolute z-30 hidden lg:block"
         style={{
           left: smoothPos.x + 32,
           top: smoothPos.y - 130,
@@ -116,7 +116,7 @@ const PortfolioList: React.FC<PortfolioListProps> = () => {
                 {/* Title with animated underline */}
                 <div className="relative inline-block">
                   <h3
-                    className="font-['Hanken_Grotesk'] text-2xl sm:text-3xl md:text-4xl font-extrabold leading-tight"
+                    className="font-['Hanken_Grotesk'] text-xl sm:text-3xl md:text-4xl font-extrabold leading-tight"
                     style={{
                       color: isOther ? '#aaa' : '#0d0d0d',
                       transition: 'color 0.25s ease',
@@ -176,7 +176,7 @@ export const ProcessAndWorksSection: React.FC<ProcessAndWorksSectionProps> = ({
   onSelectProject,
   onOpenWhatsApp,
 }) => {
-  const [expandedStep, setExpandedStep] = useState<string>('01');
+  const [expandedStep, setExpandedStep] = useState<string>('');
   const toggleStep = (num: string) => {
     setExpandedStep(expandedStep === num ? '' : num);
   };
@@ -184,18 +184,18 @@ export const ProcessAndWorksSection: React.FC<ProcessAndWorksSectionProps> = ({
   return (
     <section id="cara-kerja" className="py-20 lg:py-28 px-4 sm:px-6 lg:px-8 bg-[#f9fbe5] text-[#0d0d0d] overflow-visible">
       <div className="max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-24 items-start">
 
-          {/* Left: Label + Heading — sticky */}
+          {/* Left: Label + Heading — sticky hanya di desktop */}
           <div className="lg:sticky lg:top-24 self-start">
             <span className="font-['Geist'] text-xs font-bold text-[#0EA5E9] uppercase tracking-widest mb-4 block">
               CARA KERJA
             </span>
-            <h2 className="font-['Hanken_Grotesk'] text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-tight text-[#0d0d0d]">
+            <h2 className="font-['Hanken_Grotesk'] text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight text-[#0d0d0d]">
               5 Langkah<br />
               <span className="text-[#0EA5E9]">Dengan Karsa</span>
             </h2>
-            <p className="mt-5 font-['Manrope'] text-sm sm:text-base text-[#444] leading-relaxed max-w-sm">
+            <p className="mt-4 font-['Manrope'] text-sm sm:text-base text-[#444] leading-relaxed max-w-sm">
               Dari obrolan pertama sampai sistem live — prosesnya transparan, terstruktur, dan tanpa kejutan.
             </p>
           </div>
@@ -246,8 +246,8 @@ export const ProcessAndWorksSection: React.FC<ProcessAndWorksSectionProps> = ({
         </div>
 
         {/* Portfolio section */}
-        <div id="portfolio" className="mt-24 lg:mt-32">
-          <span className="font-['Geist'] text-xs font-bold text-[#0EA5E9] uppercase tracking-widest mb-8 block">
+        <div id="portfolio" className="mt-16 lg:mt-32">
+          <span className="font-['Geist'] text-xs font-bold text-[#0EA5E9] uppercase tracking-widest mb-6 block">
             KARYA KAMI
           </span>
 

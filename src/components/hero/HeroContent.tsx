@@ -82,25 +82,20 @@ export const HeroContent: React.FC<HeroContentProps> = ({ onOpenWhatsApp }) => {
 
   return (
     <div className="absolute inset-0 z-20 flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
-      {/* Wrapper untuk semua konten yang ikut gerak */}
-      <div 
-        className="flex flex-col items-center transition-transform duration-200 ease-out"
-        style={{
-          transform: `translate(${parallaxX}px, ${parallaxY}px)`
-        }}
+      <div
+        className="flex flex-col items-center transition-transform duration-200 ease-out w-full max-w-5xl"
+        style={{ transform: `translate(${parallaxX}px, ${parallaxY}px)` }}
       >
-        {/* Main Heading with Mouse Parallax */}
-        <div className="text-center mb-6">
-          <h1 className="font-['Space_Grotesk'] text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-tight mb-2">
+        {/* Main Heading */}
+        <div className="text-center mb-5 sm:mb-6">
+          <h1 className="font-['Space_Grotesk'] text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-tight mb-1 sm:mb-2">
             <span className="text-black">Konsultan Digital.</span>
           </h1>
-          <h1 className="font-['Space_Grotesk'] text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-tight">
-            <span 
-              className="text-[#0EA5E9] inline-block animate-word-fade"
+          <h1 className="font-['Space_Grotesk'] text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-tight">
+            <span
+              className="text-[#0EA5E9] inline-block"
               key={currentWordIndex}
-              style={{
-                animation: 'wordFade 2s ease-in-out'
-              }}
+              style={{ animation: 'wordFade 2s ease-in-out' }}
             >
               {words[currentWordIndex]}
             </span>
@@ -108,25 +103,23 @@ export const HeroContent: React.FC<HeroContentProps> = ({ onOpenWhatsApp }) => {
           </h1>
         </div>
 
-        {/* Subheading - ikut gerak */}
-        <p className="text-center text-black font-['Space_Grotesk'] text-sm sm:text-base md:text-lg lg:text-xl font-medium max-w-4xl mb-8">
+        {/* Subheading */}
+        <p className="text-center text-black font-['Space_Grotesk'] text-xs sm:text-base md:text-lg lg:text-xl font-medium max-w-2xl mb-6 sm:mb-8 px-2">
           Kami bantu bisnis dan institusi kamu masuk ke go digital, tanpa ribet.
         </p>
 
-        {/* CTA Buttons - ikut gerak */}
-        <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
-          {/* WhatsApp Button - Tanpa Icon */}
+        {/* CTA Buttons */}
+        <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-6 w-full sm:w-auto px-4 sm:px-0">
           <button
             onClick={handleWhatsAppClick}
-            className="bg-[#0EA5E9] hover:bg-[#c9f000] text-black font-bold font-['Space_Grotesk'] text-base sm:text-lg px-8 py-4 sm:px-10 sm:py-5 rounded-full transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg"
+            className="w-full sm:w-auto bg-[#0EA5E9] hover:bg-[#0284C7] text-black font-bold font-['Space_Grotesk'] text-sm sm:text-lg px-7 py-3.5 sm:px-10 sm:py-5 rounded-full transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg"
           >
-            <span>Konsultasi via WhatsApp</span>
+            Konsultasi via WhatsApp
           </button>
 
-          {/* Secondary Link - Lebih Besar */}
           <button
             onClick={handleLayananClick}
-            className="text-black hover:text-gray-700 font-medium text-base sm:text-lg transition-colors underline underline-offset-4"
+            className="text-black hover:text-gray-700 font-medium text-sm sm:text-lg transition-colors underline underline-offset-4"
           >
             Ngobrol aja dulu, siapa tahu cocok.
           </button>

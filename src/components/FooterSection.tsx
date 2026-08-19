@@ -16,23 +16,23 @@ export const FooterSection: React.FC<FooterSectionProps> = ({ onOpenWhatsApp, da
   return (
     <>
       {/* PRE-FOOTER CTA */}
-      <section className="py-20 lg:py-28 px-4 sm:px-6 lg:px-8 border-t border-[#c5c9ac]/40 bg-[#f9fbe5]">
-        <div className="max-w-4xl mx-auto text-center space-y-6">
-          <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#0EA5E9] text-[#0d0d0d] text-xs font-bold uppercase tracking-widest font-['Geist'] shadow-xs">
+      <section className="py-14 lg:py-28 px-4 sm:px-6 lg:px-8 border-t border-[#c5c9ac]/40 bg-[#f9fbe5]">
+        <div className="max-w-4xl mx-auto text-center space-y-4 lg:space-y-6">
+          <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#0EA5E9] text-[#0d0d0d] text-xs font-bold uppercase tracking-widest font-['Geist']">
             Ayo Mulai Transformasi
           </span>
-          <h2 className="font-['Hanken_Grotesk'] text-4xl sm:text-6xl font-black tracking-tight text-[#0d0d0d]">
+          <h2 className="font-['Hanken_Grotesk'] text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-[#0d0d0d]">
             Yuk, Ngobrol Dulu.
           </h2>
-          <p className="font-['Manrope'] text-base sm:text-xl text-[#333333] max-w-2xl mx-auto font-medium leading-relaxed">
-            Untuk memulai, jelaskan kebutuhan bisnis Anda, dan tim kami akan segera menghubungi. Tidak ada komitmen. Tidak ada tekanan. Ceritakan bisnis kamu — sisanya biar kami yang pikirkan.
+          <p className="font-['Manrope'] text-sm sm:text-lg text-[#333333] max-w-2xl mx-auto font-medium leading-relaxed">
+            Tidak ada komitmen. Tidak ada tekanan. Ceritakan bisnis kamu — sisanya biar kami yang pikirkan.
           </p>
-          <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
             <button
               onClick={() => onOpenWhatsApp('Halo karsa digital, yuk ngobrol dulu mengenai peluang sistem untuk bisnis saya.')}
-              className="bg-[#0EA5E9] hover:bg-[#0EA5E9] text-[#0d0d0d] font-bold font-['Manrope'] text-base px-8 py-4 rounded-full flex items-center justify-center gap-3 transition-transform hover:scale-105 shadow-xl"
+              className="w-full sm:w-auto bg-[#0EA5E9] hover:bg-[#0284C7] text-[#0d0d0d] font-bold font-['Manrope'] text-sm sm:text-base px-8 py-4 rounded-full flex items-center justify-center gap-3 transition-transform hover:scale-105 shadow-xl"
             >
-              <MessageSquare size={20} className="fill-[#0d0d0d]" />
+              <MessageSquare size={18} />
               <span>Chat Kami di WhatsApp</span>
             </button>
           </div>
@@ -41,42 +41,32 @@ export const FooterSection: React.FC<FooterSectionProps> = ({ onOpenWhatsApp, da
 
       {/* FOOTER BAR */}
       <footer className="bg-[#1a1d10] text-[#f9fbe5] py-12 px-4 sm:px-6 lg:px-8 border-t border-[#444932]">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
-
+        <div className="max-w-7xl mx-auto flex flex-col items-center md:flex-row md:justify-between gap-6">
           {/* Brand */}
-          <div className="flex flex-col items-center md:items-start gap-2">
+          <div className="flex flex-col items-center md:items-start gap-1">
             <a href="#" className="flex items-center gap-2">
-              <div className="w-7 h-7 rounded-full bg-[#0EA5E9] flex items-center justify-center font-bold text-[#0d0d0d] text-xs">
-                k
-              </div>
-              <span className="text-2xl font-black font-['Hanken_Grotesk'] tracking-tight text-white">
+              <div className="w-7 h-7 rounded-full bg-[#0EA5E9] flex items-center justify-center font-bold text-[#0d0d0d] text-xs">k</div>
+              <span className="text-xl font-black font-['Hanken_Grotesk'] tracking-tight text-white">
                 karsa<span className="text-[#0EA5E9]">.digital</span>
               </span>
             </a>
-            <p className="text-xs text-[#c5c9ac] font-['Geist']">
+            <p className="text-xs text-[#c5c9ac] font-['Geist'] text-center md:text-left">
               © 2025 karsa.digital — Konsultan Digital & Software House.
             </p>
           </div>
 
-
-
           {/* Legal + Scroll Top */}
-          <div className="flex flex-wrap items-center gap-6 text-xs font-semibold font-['Geist'] text-[#c5c9ac]">
+          <div className="flex flex-wrap items-center justify-center gap-5 text-xs font-semibold font-['Geist'] text-[#c5c9ac]">
             <button onClick={() => setActiveLegalModal('terms')} className="hover:text-[#0EA5E9] transition-colors">
               Syarat & Ketentuan
             </button>
             <button onClick={() => setActiveLegalModal('privacy')} className="hover:text-[#0EA5E9] transition-colors">
               Kebijakan Privasi
             </button>
-            <button
-              onClick={scrollToTop}
-              className="p-2 rounded-full bg-[#2f3223] text-[#0EA5E9] hover:bg-[#0284C7] transition-colors"
-              title="Kembali ke atas"
-            >
+            <button onClick={scrollToTop} className="p-2 rounded-full bg-[#2f3223] text-[#0EA5E9] hover:bg-[#0284C7] transition-colors" title="Kembali ke atas">
               <ArrowUp size={16} />
             </button>
           </div>
-
         </div>
       </footer>
 

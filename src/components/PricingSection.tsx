@@ -42,8 +42,8 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ darkMode, onOpen
       <div className="max-w-3xl mx-auto">
 
         {/* Header */}
-        <div className="text-center mb-12 space-y-3">
-          <h2 className="font-['Hanken_Grotesk'] text-3xl sm:text-5xl font-extrabold tracking-tight text-[#0d0d0d]">
+        <div className="text-center mb-10 space-y-3">
+          <h2 className="font-['Hanken_Grotesk'] text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-[#0d0d0d]">
             Harga yang Tidak Bikin Kaget
           </h2>
           <p className="font-['Manrope'] text-sm sm:text-base text-[#555] leading-relaxed">
@@ -56,13 +56,13 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ darkMode, onOpen
           {PACKAGES.map((pkg) => (
             <div
               key={pkg.id}
-              className="flex items-center justify-between gap-4 px-6 py-5 rounded-2xl border border-[#0d0d0d] cursor-default"
+              className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 sm:gap-4 px-5 py-4 rounded-2xl border border-[#0d0d0d] cursor-default"
             >
-              <span className="font-['Hanken_Grotesk'] text-base sm:text-lg font-bold text-[#0d0d0d]">
+              <span className="font-['Hanken_Grotesk'] text-base font-bold text-[#0d0d0d]">
                 {pkg.name}
               </span>
-              <span className="font-['Geist'] text-sm sm:text-base font-semibold text-[#0d0d0d] whitespace-nowrap">
-                {pkg.price}{pkg.period && <span className="text-[#0d0d0d] font-normal"> {pkg.period}</span>}
+              <span className="font-['Geist'] text-sm font-semibold text-[#0d0d0d]">
+                {pkg.price}{pkg.period && <span className="font-normal"> {pkg.period}</span>}
               </span>
             </div>
           ))}
