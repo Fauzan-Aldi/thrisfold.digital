@@ -76,9 +76,17 @@ export const HeroNavbar: React.FC<HeroNavbarProps> = ({ darkMode, setDarkMode })
           </button>
         </div>
 
+        {/* Tap-outside overlay */}
+        {mobileMenuOpen && (
+          <div
+            className="fixed inset-0 z-20 md:hidden"
+            onClick={() => setMobileMenuOpen(false)}
+          />
+        )}
+
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-lg shadow-lg rounded-b-2xl mt-4 mx-6 p-8">
+          <div className="md:hidden relative z-30 absolute top-full left-0 right-0 bg-white/95 backdrop-blur-lg shadow-lg rounded-b-2xl mt-4 mx-6 p-8">
             <div className="flex flex-col gap-6">
               <button
                 onClick={() => handleNavClick('layanan')}

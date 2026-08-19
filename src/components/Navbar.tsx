@@ -108,9 +108,17 @@ export const Navbar: React.FC<NavbarProps> = ({
         </button>
       </div>
 
+      {/* Tap-outside overlay */}
+      {mobileMenuOpen && (
+        <div
+          className="fixed inset-0 z-40 md:hidden"
+          onClick={() => setMobileMenuOpen(false)}
+        />
+      )}
+
       {/* Mobile menu */}
       {mobileMenuOpen && (
-        <div className={`md:hidden border-t px-6 py-6 ${
+        <div className={`relative z-50 md:hidden border-t px-6 py-6 ${
           scrolled
             ? 'bg-[#f4f5df] border-[#c5c9ac]/40'
             : 'bg-[#1a1d10]/95 backdrop-blur-2xl border-white/10'

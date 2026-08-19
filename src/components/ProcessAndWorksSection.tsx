@@ -103,59 +103,83 @@ const PortfolioList: React.FC<PortfolioListProps> = () => {
               key={project.id}
               onMouseEnter={() => handleMouseEnter(project.id)}
               onMouseLeave={handleMouseLeave}
-              className="group py-7 flex items-center justify-between gap-6 cursor-default"
+              onClick={() => setHoveredId(isHovered ? null : project.id)}
+              className="group py-6 flex flex-col gap-0 cursor-default select-none"
               style={{ transition: 'opacity 0.2s ease' }}
             >
-              <div
-                className="flex-1 min-w-0"
-                style={{
-                  transform: isHovered ? 'translateX(8px)' : 'translateX(0px)',
-                  transition: 'transform 0.3s cubic-bezier(0.4,0,0.2,1)',
-                }}
-              >
-                {/* Title with animated underline */}
-                <div className="relative inline-block">
-                  <h3
-                    className="font-['Hanken_Grotesk'] text-xl sm:text-3xl md:text-4xl font-extrabold leading-tight"
+              {/* Row utama */}
+              <div className="flex items-center justify-between gap-6">
+                <div
+                  className="flex-1 min-w-0"
+                  style={{
+                    transform: isHovered ? 'translateX(8px)' : 'translateX(0px)',
+                    transition: 'transform 0.3s cubic-bezier(0.4,0,0.2,1)',
+                  }}
+                >
+                  {/* Title with animated underline */}
+                  <div className="relative inline-block">
+                    <h3
+                      className="font-['Hanken_Grotesk'] text-xl sm:text-3xl md:text-4xl font-extrabold leading-tight"
+                      style={{
+                        color: isOther ? '#aaa' : '#0d0d0d',
+                        transition: 'color 0.25s ease',
+                      }}
+                    >
+                      {project.title}
+                    </h3>
+                    {/* Underline bar */}
+                    <span
+                      className="block h-[3px] rounded-full bg-[#0EA5E9] mt-1"
+                      style={{
+                        width: isHovered ? '100%' : '0%',
+                        transition: 'width 0.35s cubic-bezier(0.4,0,0.2,1)',
+                      }}
+                    />
+                  </div>
+                  <p
+                    className="mt-1 font-['Manrope'] text-sm"
                     style={{
-                      color: isOther ? '#aaa' : '#0d0d0d',
+                      color: isOther ? '#aaa' : '#555',
                       transition: 'color 0.25s ease',
                     }}
                   >
-                    {project.title}
-                  </h3>
-                  {/* Underline bar */}
-                  <span
-                    className="block h-[3px] rounded-full bg-[#0EA5E9] mt-1"
-                    style={{
-                      width: isHovered ? '100%' : '0%',
-                      transition: 'width 0.35s cubic-bezier(0.4,0,0.2,1)',
-                    }}
-                  />
+                    {project.subtitle}
+                  </p>
                 </div>
-                <p
-                  className="mt-1 font-['Manrope'] text-sm"
+
+                {/* Arrow button */}
+                <div
+                  className="shrink-0 w-9 h-9 rounded-full border flex items-center justify-center"
                   style={{
-                    color: isOther ? '#aaa' : '#555',
-                    transition: 'color 0.25s ease',
+                    backgroundColor: isHovered ? '#0EA5E9' : 'transparent',
+                    borderColor: isHovered ? '#0EA5E9' : '#c5c9ac',
+                    color: isHovered ? '#0d0d0d' : '#888',
+                    transform: isHovered ? 'rotate(45deg) scale(1.1)' : 'rotate(0deg) scale(1)',
+                    transition: 'all 0.3s cubic-bezier(0.4,0,0.2,1)',
                   }}
                 >
-                  {project.subtitle}
-                </p>
+                  <ArrowUpRight size={16} />
+                </div>
               </div>
 
-              {/* Arrow button */}
+              {/* Thumbnail inline — hanya mobile, muncul saat di-tap */}
               <div
-                className="shrink-0 w-9 h-9 rounded-full border flex items-center justify-center"
+                className="lg:hidden overflow-hidden"
                 style={{
-                  backgroundColor: isHovered ? '#0EA5E9' : 'transparent',
-                  borderColor: isHovered ? '#0EA5E9' : '#c5c9ac',
-                  color: isHovered ? '#0d0d0d' : '#888',
-                  transform: isHovered ? 'rotate(45deg) scale(1.1)' : 'rotate(0deg) scale(1)',
-                  transition: 'all 0.3s cubic-bezier(0.4,0,0.2,1)',
+                  maxHeight: isHovered ? '200px' : '0px',
+                  opacity: isHovered ? 1 : 0,
+                  transition: 'max-height 0.4s cubic-bezier(0.4,0,0.2,1), opacity 0.3s ease',
                 }}
               >
-                <ArrowUpRight size={16} />
+                {PROJECT_IMAGES[project.id] && (
+                  <div className="mt-4 rounded-2xl overflow-hidden shadow-lg ring-1 ring-black/10">
+                    <img
+                      src={PROJECT_IMAGES[project.id]}
+                      alt={project.title}
+                      className="w-full h-44 object-cover"
+                    />
+                  </div>
+                )}
               </div>
             </div>
           );

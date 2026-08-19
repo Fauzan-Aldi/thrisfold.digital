@@ -48,14 +48,26 @@ export const HeroContent: React.FC<HeroContentProps> = ({ onOpenWhatsApp }) => {
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      // Get mouse position relative to window center
       const x = (e.clientX - window.innerWidth / 2) / window.innerWidth;
       const y = (e.clientY - window.innerHeight / 2) / window.innerHeight;
       setMousePosition({ x, y });
     };
 
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
+    // Device orientation parallax untuk mobile
+    const handleOrientation = (e: DeviceOrientationEvent) => {
+      const x = (e.gamma ?? 0) / 45;  // tilt kiri-kanan
+      const y = (e.beta ?? 0) / 90;   // tilt depan-belakang
+      setMousePosition({ x: x * 0.5, y: y * 0.5 });
+    };
+
+    const isMobile = 'ontouchstart' in window;
+    if (isMobile && window.DeviceOrientationEvent) {
+      window.addEventListener('deviceorientation', handleOrientation);
+      return () => window.removeEventListener('deviceorientation', handleOrientation);
+    } else {
+      window.addEventListener('mousemove', handleMouseMove);
+      return () => window.removeEventListener('mousemove', handleMouseMove);
+    }
   }, []);
 
   // Ganti kata setiap 2 detik
