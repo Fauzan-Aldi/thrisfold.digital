@@ -1,7 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { PROCESS_STEPS, PORTFOLIO_PROJECTS } from '../data/landingData';
-import { PortfolioProject, ProcessStep } from '../types';
+import { PortfolioProject, ProcessStep, Language } from '../types';
 import { Plus, X, ArrowUpRight } from 'lucide-react';
+import { t } from '../data/translations';
 
 // Mockup images per project
 const PROJECT_IMAGES: Record<string, string> = {
@@ -193,13 +194,13 @@ interface ProcessAndWorksSectionProps {
   darkMode: boolean;
   onSelectProject: (project: PortfolioProject) => void;
   onOpenWhatsApp: (note?: string) => void;
+  language: Language;
 }
 
 export const ProcessAndWorksSection: React.FC<ProcessAndWorksSectionProps> = ({
-  darkMode,
-  onSelectProject,
-  onOpenWhatsApp,
+  darkMode, onSelectProject, onOpenWhatsApp, language,
 }) => {
+  const tr = t[language].process;
   const [expandedStep, setExpandedStep] = useState<string>('');
   const toggleStep = (num: string) => {
     setExpandedStep(expandedStep === num ? '' : num);
@@ -213,14 +214,14 @@ export const ProcessAndWorksSection: React.FC<ProcessAndWorksSectionProps> = ({
           {/* Left: Label + Heading — sticky hanya di desktop */}
           <div className="lg:sticky lg:top-24 self-start">
             <span className="font-['Geist'] text-xs font-bold text-[#0EA5E9] uppercase tracking-widest mb-4 block">
-              CARA KERJA
+              {tr.badge}
             </span>
             <h2 className="font-['Hanken_Grotesk'] text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight text-[#0d0d0d]">
-              5 Langkah<br />
-              <span className="text-[#0EA5E9]">Dengan Karsa</span>
+              {tr.heading1}<br />
+              <span className="text-[#0EA5E9]">{tr.heading2}</span>
             </h2>
             <p className="mt-4 font-['Manrope'] text-sm sm:text-base text-[#444] leading-relaxed max-w-sm">
-              Dari obrolan pertama sampai sistem live — prosesnya transparan, terstruktur, dan tanpa kejutan.
+              {tr.sub}
             </p>
           </div>
 
@@ -272,7 +273,7 @@ export const ProcessAndWorksSection: React.FC<ProcessAndWorksSectionProps> = ({
         {/* Portfolio section */}
         <div id="portfolio" className="mt-16 lg:mt-32">
           <span className="font-['Geist'] text-xs font-bold text-[#0EA5E9] uppercase tracking-widest mb-6 block">
-            KARYA KAMI
+            {tr.portfolioBadge}
           </span>
 
           <PortfolioList />

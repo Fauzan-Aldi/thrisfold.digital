@@ -60,12 +60,14 @@ export default function App() {
         <HeroSection
           onOpenWhatsApp={handleOpenWhatsApp}
           darkMode={darkMode}
+          language={language}
         />
 
         {/* Middle Section 1: Services & Capabilities */}
         <ServicesSection
           darkMode={darkMode}
           onOpenWhatsApp={handleOpenWhatsApp}
+          language={language}
         />
 
         {/* Middle Section 2: 5 Steps & Portfolio Works */}
@@ -73,12 +75,14 @@ export default function App() {
           darkMode={darkMode}
           onSelectProject={(project) => setSelectedProject(project)}
           onOpenWhatsApp={handleOpenWhatsApp}
+          language={language}
         />
 
         {/* Pricing & Cost Estimator */}
         <PricingSection
           darkMode={darkMode}
           onOpenWhatsApp={handleOpenWhatsApp}
+          language={language}
         />
       </main>
 
@@ -86,6 +90,7 @@ export default function App() {
       <FooterSection
         onOpenWhatsApp={handleOpenWhatsApp}
         darkMode={darkMode}
+        language={language}
       />
 
       {/* Modals & Drawers */}

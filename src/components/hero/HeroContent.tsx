@@ -1,50 +1,17 @@
 import React, { useState, useEffect } from 'react';
+import { t } from '../../data/translations';
+import { Language } from '../../types';
 
 interface HeroContentProps {
   onOpenWhatsApp: (note?: string) => void;
+  language: Language;
 }
 
-export const HeroContent: React.FC<HeroContentProps> = ({ onOpenWhatsApp }) => {
+export const HeroContent: React.FC<HeroContentProps> = ({ onOpenWhatsApp, language }) => {
+  const tr = t[language].hero;
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
-
-  // Daftar kata yang akan berganti
-  const words = [
-    'bisnis',
-    'UMKM',
-    'Startup',
-    'Perusahaan',
-    'Klinik',
-    'Rumah Sakit',
-    'Sekolah',
-    'Universitas',
-    'Yayasan',
-    'Pesantren',
-    'Koperasi',
-    'Cafe',
-    'Restoran',
-    'Hotel',
-    'Travel',
-    'Kontraktor',
-    'Properti',
-    'Notaris',
-    'Law Firm',
-    'Laundry',
-    'Salon',
-    'Barbershop',
-    'Gym',
-    'Bengkel',
-    'Dealer',
-    'Logistik',
-    'Distributor',
-    'Pabrik',
-    'Pet Shop',
-    'Apotek',
-    'BUMDes',
-    'Instansi',
-    'Organisasi',
-    'Komunitas'
-  ];
+  const words = [...tr.words] as string[];
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -101,23 +68,19 @@ export const HeroContent: React.FC<HeroContentProps> = ({ onOpenWhatsApp }) => {
         {/* Main Heading */}
         <div className="text-center mb-5 sm:mb-6">
           <h1 className="font-['Space_Grotesk'] text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-tight mb-1 sm:mb-2">
-            <span className="text-black">Konsultan Digital.</span>
+            <span className="text-black">{tr.heading1}</span>
           </h1>
           <h1 className="font-['Space_Grotesk'] text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-tight">
-            <span
-              className="text-[#0EA5E9] inline-block"
-              key={currentWordIndex}
-              style={{ animation: 'wordFade 2s ease-in-out' }}
-            >
+            <span className="text-[#0EA5E9] inline-block" key={currentWordIndex} style={{ animation: 'wordFade 2s ease-in-out' }}>
               {words[currentWordIndex]}
             </span>
-            <span className="text-black"> kamu.</span>
+            <span className="text-black"> {tr.heading2}</span>
           </h1>
         </div>
 
         {/* Subheading */}
         <p className="text-center text-black font-['Space_Grotesk'] text-xs sm:text-base md:text-lg lg:text-xl font-medium max-w-2xl mb-6 sm:mb-8 px-2">
-          Kami bantu bisnis dan institusi kamu masuk ke go digital, tanpa ribet.
+          {tr.sub}
         </p>
 
         {/* CTA Buttons */}
@@ -126,14 +89,10 @@ export const HeroContent: React.FC<HeroContentProps> = ({ onOpenWhatsApp }) => {
             onClick={handleWhatsAppClick}
             className="w-full sm:w-auto bg-[#0EA5E9] hover:bg-[#0284C7] text-black font-bold font-['Space_Grotesk'] text-sm sm:text-lg px-7 py-3.5 sm:px-10 sm:py-5 rounded-full transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg"
           >
-            Konsultasi via WhatsApp
+            {tr.cta}
           </button>
-
-          <button
-            onClick={handleLayananClick}
-            className="text-black hover:text-gray-700 font-medium text-sm sm:text-lg transition-colors underline underline-offset-4"
-          >
-            Ngobrol aja dulu, siapa tahu cocok.
+          <button onClick={handleLayananClick} className="text-black hover:text-gray-700 font-medium text-sm sm:text-lg transition-colors underline underline-offset-4">
+            {tr.ctaSecondary}
           </button>
         </div>
       </div>

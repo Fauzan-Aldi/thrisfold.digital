@@ -118,33 +118,32 @@ export const Navbar: React.FC<NavbarProps> = ({
 
       {/* Mobile menu */}
       {mobileMenuOpen && (
-        <div className={`relative z-50 md:hidden border-t px-6 py-6 ${
-          scrolled
-            ? 'bg-[#f4f5df] border-[#c5c9ac]/40'
-            : 'bg-[#1a1d10]/95 backdrop-blur-2xl border-white/10'
-        }`}>
-          <div className={`flex flex-col gap-4 font-semibold text-base ${
-            scrolled ? 'text-[#0d0d0d]' : 'text-white'
-          }`}>
-            {[
-              { label: 'Layanan', id: 'layanan' },
-              { label: 'Portfolio', id: 'portfolio' },
-            ].map(({ label, id }) => (
-              <a
-                key={id}
-                href={`#${id}`}
-                onClick={(e) => handleSmoothScroll(e, id)}
-                className="py-2 hover:text-[#0EA5E9] transition-colors"
-              >
-                {label}
-              </a>
-            ))}
-            <button
-              onClick={() => setLanguage(language === 'id' ? 'en' : 'id')}
-              className="py-2 text-left hover:text-[#0EA5E9] transition-colors"
+        <div className="relative z-50 md:hidden px-6 py-2">
+          <div className="flex flex-col font-semibold text-base text-[#0d0d0d]">
+            <a
+              href="#layanan"
+              onClick={(e) => handleSmoothScroll(e, 'layanan')}
+              className="py-4 hover:text-[#0EA5E9] transition-colors"
             >
-              {language === 'id' ? 'ID / EN' : 'EN / ID'}
-            </button>
+              Layanan
+            </a>
+            <a
+              href="#portfolio"
+              onClick={(e) => handleSmoothScroll(e, 'portfolio')}
+              className="py-4 hover:text-[#0EA5E9] transition-colors"
+            >
+              Portfolio
+            </a>
+            {/* Garis pemisah */}
+            <div className="w-full h-[2px] bg-black/25 my-1" />
+            <div className="flex items-center justify-between py-4">
+              <button
+                onClick={() => setLanguage(language === 'id' ? 'en' : 'id')}
+                className="font-semibold hover:text-[#0EA5E9] transition-colors"
+              >
+                {language === 'id' ? 'ID / EN' : 'EN / ID'}
+              </button>
+            </div>
           </div>
         </div>
       )}
