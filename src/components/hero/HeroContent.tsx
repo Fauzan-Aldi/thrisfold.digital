@@ -91,9 +91,9 @@ export const HeroContent: React.FC<HeroContentProps> = ({ onOpenWhatsApp, langua
           >
             {tr.cta}
           </button>
-          <button onClick={handleLayananClick} className="text-black hover:text-gray-700 font-medium text-sm sm:text-lg transition-colors underline underline-offset-4">
+          <span className="text-black font-medium text-sm sm:text-lg">
             {tr.ctaSecondary}
-          </button>
+          </span>
         </div>
       </div>
     </div>

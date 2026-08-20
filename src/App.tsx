@@ -28,9 +28,10 @@ export default function App() {
   }, [darkMode]);
 
   const handleOpenWhatsApp = (note?: string) => {
-    if (note) setWhatsAppNote(note);
-    else setWhatsAppNote('Halo bayu digital, saya berminat konsultasi mengenai sistem digital untuk bisnis saya.');
-    setIsWhatsAppOpen(true);
+    const msg = note || 'Halo karsa digital, saya ingin konsultasi mengenai sistem digital untuk bisnis saya.';
+    const phone = '6285363407399';
+    const url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
+    window.open(url, '_blank');
   };
 
   const handleOpenEstimator = () => {
