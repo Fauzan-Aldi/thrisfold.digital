@@ -33,7 +33,7 @@ export const t = {
       badge: 'CARA KERJA',
       heading1: '5 Langkah',
       heading2: 'Dengan Karsa',
-      sub: 'Dari obrolan pertama sampai sistem live — prosesnya transparan, terstruktur, dan tanpa kejutan.',
+      sub: 'Dari obrolan pertama sampai sistem live prosesnya transparan, terstruktur, dan tanpa kejutan.',
       portfolioBadge: 'KARYA KAMI',
     },
     // Pricing
@@ -53,7 +53,7 @@ export const t = {
     footer: {
       cta_badge: 'Ayo Mulai Transformasi',
       cta_heading: 'Yuk, Ngobrol Dulu.',
-      cta_sub: 'Tidak ada komitmen. Tidak ada tekanan. Ceritakan bisnis kamu — sisanya biar kami yang pikirkan.',
+      cta_sub: 'Tidak ada komitmen. Tidak ada tekanan. Ceritakan bisnis kamu  sisanya biar kami yang pikirkan.',
       cta_btn: 'Chat Kami di WhatsApp',
       copyright: '© 2025 karsa.digital',
       terms: 'Syarat & Ketentuan',
@@ -72,7 +72,7 @@ export const t = {
       words: ['Business', 'Hotel', 'Clinic', 'School', 'SME', 'Startup'],
       heading1: 'Digital Consultant.',
       heading2: 'yours.',
-      sub: 'We help your business and institution go digital — simply and efficiently.',
+      sub: 'We help your business and institution go digital  simply and efficiently.',
       cta: 'Consult via WhatsApp',
       ctaSecondary: "Let's chat first, see if we're a fit.",
     },
@@ -80,7 +80,7 @@ export const t = {
     services: {
       badge: 'SERVICES',
       heading: 'Everything Your Business Needs.',
-      sub: 'From company profile websites and ERP systems to AI automation — we build it all.',
+      sub: 'From company profile websites and ERP systems to AI automation  we build it all.',
       hint: 'Hover over a service to preview →',
       items: [
         { label: 'Website', tagline: 'Company Profile & Landing Page', desc: 'Modern, fast, and mobile-friendly websites to make your business look professional.' },
@@ -95,7 +95,7 @@ export const t = {
       badge: 'HOW IT WORKS',
       heading1: '5 Steps',
       heading2: 'With Karsa',
-      sub: 'From the first chat to going live — the process is transparent, structured, and surprise-free.',
+      sub: 'From the first chat to going live  the process is transparent, structured, and surprise-free.',
       portfolioBadge: 'OUR WORK',
     },
     // Pricing
@@ -115,7 +115,7 @@ export const t = {
     footer: {
       cta_badge: "Let's Start the Transformation",
       cta_heading: "Let's Talk First.",
-      cta_sub: "No commitment. No pressure. Tell us about your business — we'll handle the rest.",
+      cta_sub: "No commitment. No pressure. Tell us about your business  we'll handle the rest.",
       cta_btn: 'Chat Us on WhatsApp',
       copyright: '© 2025 karsa.digital',
       terms: 'Terms & Conditions',
