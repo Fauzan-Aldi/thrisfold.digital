@@ -72,7 +72,7 @@ const PortfolioList: React.FC<PortfolioListProps> = () => {
       className="relative overflow-visible"
       onMouseMove={handleMouseMove}
     >
-      {/* Floating image — hanya desktop, ikut kursor */}
+      {/* Floating image  hanya desktop, ikut kursor */}
       <div
         className="pointer-events-none absolute z-30 hidden lg:block"
         style={{
@@ -163,7 +163,7 @@ const PortfolioList: React.FC<PortfolioListProps> = () => {
                 </div>
               </div>
 
-              {/* Thumbnail inline — hanya mobile, muncul saat di-tap */}
+              {/* Thumbnail inline  hanya mobile, muncul saat di-tap */}
               <div
                 className="lg:hidden overflow-hidden"
                 style={{
@@ -211,7 +211,7 @@ export const ProcessAndWorksSection: React.FC<ProcessAndWorksSectionProps> = ({
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-24 items-start">
 
-          {/* Left: Label + Heading — sticky hanya di desktop */}
+          {/* Left: Label + Heading  sticky hanya di desktop */}
           <div className="lg:sticky lg:top-24 self-start">
             <span className="font-['Geist'] text-xs font-bold text-[#0EA5E9] uppercase tracking-widest mb-4 block">
               {tr.badge}

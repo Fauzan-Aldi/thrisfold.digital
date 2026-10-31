@@ -99,7 +99,7 @@ export const PROCESS_STEPS: ProcessStep[] = [
   {
     number: '01',
     title: 'Obrolin dulu kebutuhan kamu',
-    description: 'Cukup cerita singkat soal bisnis kamu via WhatsApp — kami yang ajukan pertanyaan yang tepat. Tidak perlu dokumen teknis, tidak perlu bisa IT. Santai dulu.',
+    description: 'Cukup cerita singkat soal bisnis kamu via WhatsApp  kami yang ajukan pertanyaan yang tepat. Tidak perlu dokumen teknis, tidak perlu bisa IT. Santai dulu.',
     deliverables: ['Sesi Tanya Jawab via WA', 'Pemetaan Masalah Bisnis', 'Nol Komitmen di Tahap Ini'],
     estimatedDays: '1 Hari'
   },

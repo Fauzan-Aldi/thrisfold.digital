@@ -37,7 +37,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ darkMode, onOp
   const rafRef = useRef<number>(0);
   const leaveTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  // Smooth lerp loop — sama seperti Karya Kami
+  // Smooth lerp loop  sama seperti Karya Kami
   useEffect(() => {
     const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
     const animate = () => {
@@ -149,7 +149,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ darkMode, onOp
                     }}
                     className="relative rounded-3xl overflow-hidden cursor-pointer select-none"
                   >
-                    {/* Background image — selalu di-render, opacity toggle */}
+                    {/* Background image  selalu di-render, opacity toggle */}
                     <div
                       style={{ opacity: isOpen ? 1 : 0, transition: 'opacity 0.2s ease' }}
                       className="absolute inset-0"
