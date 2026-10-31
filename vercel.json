@@ -9,9 +9,8 @@
           "value": ".*\\.vercel\\.app"
         }
       ],
-      "destination": "https://www.bren.digital/:path*",
+      "destination": "https://bren.digital/:path*",
       "permanent": true
     }
   ]
 }
-
