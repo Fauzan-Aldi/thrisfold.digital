@@ -87,38 +87,37 @@ export const HeroContent: React.FC<HeroContentProps> = React.memo(({ onOpenWhats
           <h1 className="font-['Space_Grotesk'] text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-tight mb-1 sm:mb-2 text-white tracking-tight drop-shadow-sm">
             <span>{tr.heading1}</span>
           </h1>
-          <h1 className="font-['Space_Grotesk'] text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-tight tracking-tight drop-shadow-sm">
+          <h1 className="font-['Space_Grotesk'] text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-tight tracking-tight drop-shadow-sm text-white">
             <span 
-              className="text-[#38BDF8] inline-block font-black"
+              className="bg-white text-black px-3.5 sm:px-6 py-0.5 sm:py-1 rounded-2xl sm:rounded-3xl inline-block font-black shadow-2xl mx-1 sm:mx-2 align-middle"
               key={currentWordIndex} 
               style={{ 
                 animation: 'wordFade 2s ease-in-out',
-                textShadow: '0 0 35px rgba(56, 189, 248, 0.45)'
               }}
             >
               {words[currentWordIndex]}
             </span>
-            <span className="text-white"> {tr.heading2}</span>
+            <span> {tr.heading2}</span>
           </h1>
         </div>
 
         {/* Subheading */}
-        <p className="text-center text-blue-100/90 font-['Space_Grotesk'] text-xs sm:text-base md:text-lg lg:text-xl font-medium max-w-2xl mb-7 sm:mb-9 px-2 leading-relaxed">
+        <p className="text-center text-white/90 font-['Space_Grotesk'] text-xs sm:text-base md:text-lg lg:text-xl font-medium max-w-2xl mb-7 sm:mb-9 px-2 leading-relaxed">
           {tr.sub}
         </p>
 
-        {/* CTA Buttons - Matching reference concept */}
+        {/* CTA Buttons - Black & White Concept */}
         <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 w-full sm:w-auto px-4 sm:px-0">
           <button
             onClick={handleWhatsAppClick}
-            className="w-full sm:w-auto bg-white hover:bg-blue-50 text-[#142d70] font-bold font-['Space_Grotesk'] text-sm sm:text-base px-7 py-3.5 sm:px-8 sm:py-4 rounded-full transition-all duration-300 hover:scale-105 active:scale-95 shadow-xl flex items-center justify-center gap-3.5 group cursor-pointer"
+            className="w-full sm:w-auto bg-white hover:bg-neutral-100 text-black font-extrabold font-['Space_Grotesk'] text-sm sm:text-base px-7 py-3.5 sm:px-8 sm:py-4 rounded-full transition-all duration-300 hover:scale-105 active:scale-95 shadow-2xl flex items-center justify-center gap-3.5 group cursor-pointer"
           >
             <span>{tr.cta}</span>
-            <span className="w-7 h-7 rounded-full bg-[#1b388e] text-white flex items-center justify-center group-hover:translate-x-1 transition-transform shrink-0 shadow-sm">
+            <span className="w-7 h-7 rounded-full bg-black text-white flex items-center justify-center group-hover:translate-x-1 transition-transform shrink-0 shadow-sm">
               <ArrowRight size={15} />
             </span>
           </button>
-          <span className="text-blue-100/80 font-medium text-xs sm:text-base">
+          <span className="text-white/85 font-medium text-xs sm:text-base">
             {tr.ctaSecondary}
           </span>
         </div>

@@ -30,8 +30,8 @@ export const HeroSection: React.FC<HeroSectionProps> = React.memo(({ onOpenWhats
           <span className="text-[10px] sm:text-[11px] font-bold tracking-widest uppercase font-['Space_Grotesk'] opacity-70 group-hover:opacity-100 transition-opacity">
             Scroll
           </span>
-          <div className="w-5 h-9 sm:w-6 sm:h-10 rounded-full border-2 border-white/40 group-hover:border-white flex justify-center pt-2 transition-colors shadow-sm bg-white/10 backdrop-blur-xs">
-            <div className="w-1.5 h-2.5 bg-[#38BDF8] rounded-full animate-bounce" />
+          <div className="w-5 h-9 sm:w-6 sm:h-10 rounded-full border-2 border-white/50 group-hover:border-white flex justify-center pt-2 transition-colors shadow-sm bg-white/10 backdrop-blur-xs">
+            <div className="w-1.5 h-2.5 bg-white rounded-full animate-bounce" />
           </div>
         </button>
       </div>
