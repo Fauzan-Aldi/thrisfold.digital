@@ -137,7 +137,7 @@ export const PRICING_PACKAGES: PricingPackage[] = [
   {
     id: 'website-umkm',
     name: 'Paket Website UMKM',
-    price: 'Rp 750.000',
+    price: 'Rp 850.000',
     period: '/ tahun',
     badge: 'Paling Hemat',
     description: 'Cocok untuk usaha kecil, katalog online, landing page promosi, dan company profile resmi.',
@@ -154,7 +154,7 @@ export const PRICING_PACKAGES: PricingPackage[] = [
   {
     id: 'sistem-erp',
     name: 'Paket Sistem & ERP',
-    price: 'Rp 7.000.000',
+    price: 'Rp 8.000.000',
     period: 'sekali bayar',
     badge: 'Rekomendasi Utama',
     description: 'Solusi lengkap untuk hotel, kos-kosan, klinik, sekolah, dan operasional bisnis mandiri.',
@@ -192,7 +192,7 @@ export const ESTIMATOR_FEATURES: EstimatorFeature[] = [
     id: 'landing-page',
     name: 'Landing Page & Company Profile Modern',
     category: 'core',
-    price: 750000,
+    price: 850000,
     description: 'Tampilan bersih, cepat, responsive untuk memamerkan produk/layanan kamu.'
   },
   {

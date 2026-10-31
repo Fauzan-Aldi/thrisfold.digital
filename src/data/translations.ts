@@ -43,10 +43,10 @@ export const t = {
       sub: 'Kami percaya transparansi harga adalah bentuk menghormati waktu kamu.',
       note: '*Harga dapat berbeda sesuai kebutuhan. Konsultasi gratis sebelum komitmen apapun.',
       packages: [
-        { name: 'Paket Website UMKM', price: 'Mulai dari Rp 750.000', period: '/ tahun' },
-        { name: 'Paket Sistem & ERP', price: 'Mulai dari Rp 7.000.000', period: '' },
-        { name: 'Go-Digital Starter', price: 'Mulai dari Rp 2.500.000', period: '' },
-        { name: 'AI Automation', price: 'Mulai dari Rp 3.500.000', period: '' },
+        { name: 'Paket Website UMKM', price: 'Mulai dari Rp 850.000', period: '/ tahun' },
+        { name: 'Paket Sistem & ERP', price: 'Mulai dari Rp 8.000.000', period: '' },
+        { name: 'Go-Digital Starter', price: 'Mulai dari Rp 3.500.000', period: '' },
+        { name: 'AI Automation', price: 'Mulai dari Rp 4.500.000', period: '' },
       ],
     },
     // Footer
@@ -105,10 +105,10 @@ export const t = {
       sub: 'We believe transparent pricing is a form of respecting your time.',
       note: '*Prices may vary based on specific needs. Free consultation before any commitment.',
       packages: [
-        { name: 'SME Website Package', price: 'Starting from Rp 750,000', period: '/ year' },
-        { name: 'System & ERP Package', price: 'Starting from Rp 7,000,000', period: '' },
-        { name: 'Go-Digital Starter', price: 'Starting from Rp 2,500,000', period: '' },
-        { name: 'AI Automation', price: 'Starting from Rp 3,500,000', period: '' },
+        { name: 'SME Website Package', price: 'Starting from Rp 850,000', period: '/ year' },
+        { name: 'System & ERP Package', price: 'Starting from Rp 8,000,000', period: '' },
+        { name: 'Go-Digital Starter', price: 'Starting from Rp 3,500,000', period: '' },
+        { name: 'AI Automation', price: 'Starting from Rp 4,500,000', period: '' },
       ],
     },
     // Footer
