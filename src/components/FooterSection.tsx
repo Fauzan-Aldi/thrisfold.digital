@@ -9,7 +9,7 @@ interface FooterSectionProps {
   language: Language;
 }
 
-export const FooterSection: React.FC<FooterSectionProps> = ({ onOpenWhatsApp, darkMode, language }) => {
+export const FooterSection: React.FC<FooterSectionProps> = React.memo(({ onOpenWhatsApp, darkMode, language }) => {
   const tr = t[language].footer;
   const [activeLegalModal, setActiveLegalModal] = useState<'terms' | 'privacy' | null>(null);
 
@@ -92,4 +92,6 @@ export const FooterSection: React.FC<FooterSectionProps> = ({ onOpenWhatsApp, da
       )}
     </>
   );
-};
+});
+
+FooterSection.displayName = 'FooterSection';

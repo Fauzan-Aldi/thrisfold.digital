@@ -9,11 +9,13 @@ interface HeroSectionProps {
   language: Language;
 }
 
-export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenWhatsApp, darkMode, language }) => {
+export const HeroSection: React.FC<HeroSectionProps> = React.memo(({ onOpenWhatsApp, darkMode, language }) => {
   return (
     <section className="relative w-full overflow-hidden" style={{ minHeight: '100vh' }}>
-      <HeroBackground mousePosition={{ x: 0, y: 0 }} />
+      <HeroBackground />
       <HeroContent onOpenWhatsApp={onOpenWhatsApp} language={language} />
     </section>
   );
-};
+});
+
+HeroSection.displayName = 'HeroSection';

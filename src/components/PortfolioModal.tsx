@@ -9,7 +9,7 @@ interface PortfolioModalProps {
   darkMode: boolean;
 }
 
-export const PortfolioModal: React.FC<PortfolioModalProps> = ({
+export const PortfolioModal: React.FC<PortfolioModalProps> = React.memo(({
   project,
   onClose,
   onOpenWhatsApp,
@@ -127,4 +127,6 @@ export const PortfolioModal: React.FC<PortfolioModalProps> = ({
       </div>
     </div>
   );
-};
+});
+
+PortfolioModal.displayName = 'PortfolioModal';

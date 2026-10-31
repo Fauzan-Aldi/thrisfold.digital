@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { t } from '../../data/translations';
 import { Language } from '../../types';
 
@@ -7,33 +7,58 @@ interface HeroContentProps {
   language: Language;
 }
 
-export const HeroContent: React.FC<HeroContentProps> = ({ onOpenWhatsApp, language }) => {
+export const HeroContent: React.FC<HeroContentProps> = React.memo(({ onOpenWhatsApp, language }) => {
   const tr = t[language].hero;
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const parallaxRef = useRef<HTMLDivElement>(null);
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
-  const words = [...tr.words] as string[];
+  const words = useMemo(() => [...tr.words] as string[], [tr.words]);
+  const rafRef = useRef<number>(0);
+  const coordsRef = useRef({ x: 0, y: 0 });
 
   useEffect(() => {
+    const updateParallax = () => {
+      if (parallaxRef.current) {
+        const px = coordsRef.current.x * 20;
+        const py = coordsRef.current.y * 20;
+        parallaxRef.current.style.transform = `translate3d(${px}px, ${py}px, 0)`;
+      }
+      rafRef.current = 0;
+    };
+
     const handleMouseMove = (e: MouseEvent) => {
-      const x = (e.clientX - window.innerWidth / 2) / window.innerWidth;
-      const y = (e.clientY - window.innerHeight / 2) / window.innerHeight;
-      setMousePosition({ x, y });
+      coordsRef.current = {
+        x: (e.clientX - window.innerWidth / 2) / window.innerWidth,
+        y: (e.clientY - window.innerHeight / 2) / window.innerHeight,
+      };
+      if (!rafRef.current) {
+        rafRef.current = requestAnimationFrame(updateParallax);
+      }
     };
 
     // Device orientation parallax untuk mobile
     const handleOrientation = (e: DeviceOrientationEvent) => {
-      const x = (e.gamma ?? 0) / 45;  // tilt kiri-kanan
-      const y = (e.beta ?? 0) / 90;   // tilt depan-belakang
-      setMousePosition({ x: x * 0.5, y: y * 0.5 });
+      coordsRef.current = {
+        x: ((e.gamma ?? 0) / 45) * 0.5,
+        y: ((e.beta ?? 0) / 90) * 0.5,
+      };
+      if (!rafRef.current) {
+        rafRef.current = requestAnimationFrame(updateParallax);
+      }
     };
 
     const isMobile = 'ontouchstart' in window;
     if (isMobile && window.DeviceOrientationEvent) {
-      window.addEventListener('deviceorientation', handleOrientation);
-      return () => window.removeEventListener('deviceorientation', handleOrientation);
+      window.addEventListener('deviceorientation', handleOrientation, { passive: true });
+      return () => {
+        window.removeEventListener('deviceorientation', handleOrientation);
+        if (rafRef.current) cancelAnimationFrame(rafRef.current);
+      };
     } else {
-      window.addEventListener('mousemove', handleMouseMove);
-      return () => window.removeEventListener('mousemove', handleMouseMove);
+      window.addEventListener('mousemove', handleMouseMove, { passive: true });
+      return () => {
+        window.removeEventListener('mousemove', handleMouseMove);
+        if (rafRef.current) cancelAnimationFrame(rafRef.current);
+      };
     }
   }, []);
 
@@ -41,7 +66,7 @@ export const HeroContent: React.FC<HeroContentProps> = ({ onOpenWhatsApp, langua
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentWordIndex((prevIndex) => (prevIndex + 1) % words.length);
-    }, 2000); // 2000ms = 2 detik
+    }, 2000);
 
     return () => clearInterval(interval);
   }, [words.length]);
@@ -50,20 +75,11 @@ export const HeroContent: React.FC<HeroContentProps> = ({ onOpenWhatsApp, langua
     onOpenWhatsApp('Halo bren digital, saya ingin konsultasi mengenai sistem digital untuk bisnis saya.');
   };
 
-  const handleLayananClick = () => {
-    const target = document.getElementById('layanan');
-    if (target) target.scrollIntoView({ behavior: 'smooth' });
-  };
-
-  // Calculate parallax offset (small movement)
-  const parallaxX = mousePosition.x * 20; // Max 20px movement
-  const parallaxY = mousePosition.y * 20; // Max 20px movement
-
   return (
-    <div className="absolute inset-0 z-20 flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
+    <div className="absolute inset-0 z-20 flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 pointer-events-none">
       <div
-        className="flex flex-col items-center transition-transform duration-200 ease-out w-full max-w-5xl"
-        style={{ transform: `translate(${parallaxX}px, ${parallaxY}px)` }}
+        ref={parallaxRef}
+        className="flex flex-col items-center will-change-transform w-full max-w-5xl pointer-events-auto"
       >
         {/* Main Heading */}
         <div className="text-center mb-5 sm:mb-6">
@@ -98,4 +114,6 @@ export const HeroContent: React.FC<HeroContentProps> = ({ onOpenWhatsApp, langua
       </div>
     </div>
   );
-};
+});
+
+HeroContent.displayName = 'HeroContent';

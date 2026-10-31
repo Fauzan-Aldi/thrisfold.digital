@@ -29,10 +29,10 @@ export const WhatsAppModal: React.FC<WhatsAppModalProps> = ({
 
   if (!isOpen) return null;
 
-  const targetPhoneNumber = '6281234567890'; // bayu digital official consultation number
+  const targetPhoneNumber = '6285363407399'; // bren digital official consultation number
 
   const buildMessage = () => {
-    return `Halo Tim bayu digital 👋%0A%0ASaya ingin konsultasi pembuatan sistem digital:%0A• *Nama*: ${name || '-'}` +
+    return `Halo Tim bren digital 👋%0A%0ASaya ingin konsultasi pembuatan sistem digital:%0A• *Nama*: ${name || '-'}` +
       `%0A• *Nama Bisnis*: ${businessName || '-'}` +
       `%0A• *Kategori*: ${businessType}` +
       `%0A• *Budget*: ${budget}` +

@@ -8,15 +8,15 @@ interface PricingSectionProps {
   language: Language;
 }
 
-export const PricingSection: React.FC<PricingSectionProps> = ({ darkMode, onOpenWhatsApp, language }) => {
+export const PricingSection: React.FC<PricingSectionProps> = React.memo(({ darkMode, onOpenWhatsApp, language }) => {
   const tr = t[language].pricing;
-  const PACKAGES = tr.packages.map((pkg, i) => ({
+  const PACKAGES = React.useMemo(() => tr.packages.map((pkg, i) => ({
     id: ['website-umkm','sistem-erp','go-digital','ai-automation'][i],
     name: pkg.name,
     price: pkg.price,
     period: pkg.period,
     wa: `Halo bren digital, saya berminat dengan ${pkg.name}.`,
-  }));
+  })), [tr.packages]);
 
   return (
     <section id="harga" className="py-20 lg:py-28 px-4 sm:px-6 lg:px-8 bg-[#f9fbe5] text-[#0d0d0d]">
@@ -57,4 +57,6 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ darkMode, onOpen
       </div>
     </section>
   );
-};
+});
+
+PricingSection.displayName = 'PricingSection';

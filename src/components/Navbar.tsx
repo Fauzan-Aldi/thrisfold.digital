@@ -11,7 +11,7 @@ interface NavbarProps {
   onOpenEstimator: () => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({
+export const Navbar: React.FC<NavbarProps> = React.memo(({
   language,
   setLanguage,
   darkMode,
@@ -23,8 +23,16 @@ export const Navbar: React.FC<NavbarProps> = ({
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
+    let ticking = false;
     const handleScroll = () => {
-      setScrolled(window.scrollY > 60);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const isOver = window.scrollY > 60;
+          setScrolled(prev => (prev !== isOver ? isOver : prev));
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
@@ -149,4 +157,6 @@ export const Navbar: React.FC<NavbarProps> = ({
       )}
     </header>
   );
-};
+});
+
+Navbar.displayName = 'Navbar';

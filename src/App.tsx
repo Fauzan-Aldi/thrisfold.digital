@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Navbar } from './components/Navbar';
 import { HeroSection } from './components/HeroSection';
 import { ServicesSection } from './components/ServicesSection';
@@ -27,19 +27,31 @@ export default function App() {
     }
   }, [darkMode]);
 
-  const handleOpenWhatsApp = (note?: string) => {
+  const handleOpenWhatsApp = useCallback((note?: string) => {
     const msg = note || 'Halo bren digital, saya ingin konsultasi mengenai sistem digital untuk bisnis saya.';
     const phone = '6285363407399';
     const url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
     window.open(url, '_blank');
-  };
+  }, []);
 
-  const handleOpenEstimator = () => {
+  const handleOpenEstimator = useCallback(() => {
     const pricingEl = document.getElementById('harga');
     if (pricingEl) {
       pricingEl.scrollIntoView({ behavior: 'smooth' });
     }
-  };
+  }, []);
+
+  const handleSelectProject = useCallback((project: PortfolioProject) => {
+    setSelectedProject(project);
+  }, []);
+
+  const handleCloseProject = useCallback(() => {
+    setSelectedProject(null);
+  }, []);
+
+  const handleCloseWhatsApp = useCallback(() => {
+    setIsWhatsAppOpen(false);
+  }, []);
 
   return (
     <div className={`min-h-screen transition-colors duration-300 font-['Manrope'] ${
@@ -74,7 +86,7 @@ export default function App() {
         {/* Middle Section 2: 5 Steps & Portfolio Works */}
         <ProcessAndWorksSection
           darkMode={darkMode}
-          onSelectProject={(project) => setSelectedProject(project)}
+          onSelectProject={handleSelectProject}
           onOpenWhatsApp={handleOpenWhatsApp}
           language={language}
         />
@@ -95,19 +107,23 @@ export default function App() {
       />
 
       {/* Modals & Drawers */}
-      <PortfolioModal
-        project={selectedProject}
-        onClose={() => setSelectedProject(null)}
-        onOpenWhatsApp={handleOpenWhatsApp}
-        darkMode={darkMode}
-      />
+      {selectedProject && (
+        <PortfolioModal
+          project={selectedProject}
+          onClose={handleCloseProject}
+          onOpenWhatsApp={handleOpenWhatsApp}
+          darkMode={darkMode}
+        />
+      )}
 
-      <WhatsAppModal
-        isOpen={isWhatsAppOpen}
-        onClose={() => setIsWhatsAppOpen(false)}
-        defaultNote={whatsAppNote}
-        darkMode={darkMode}
-      />
+      {isWhatsAppOpen && (
+        <WhatsAppModal
+          isOpen={isWhatsAppOpen}
+          onClose={handleCloseWhatsApp}
+          defaultNote={whatsAppNote}
+          darkMode={darkMode}
+        />
+      )}
     </div>
   );
 }

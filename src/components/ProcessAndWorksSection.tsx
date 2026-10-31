@@ -18,25 +18,48 @@ interface PortfolioListProps {
 
 const PortfolioList: React.FC<PortfolioListProps> = () => {
   const [hoveredId, setHoveredId] = useState<string | null>(null);
-  const [smoothPos, setSmoothPos] = useState({ x: 0, y: 0 });
   const [visible, setVisible] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+  const floatingRef = useRef<HTMLDivElement>(null);
   const rafRef = useRef<number>(0);
   const targetRef = useRef({ x: 0, y: 0 });
+  const currentPosRef = useRef({ x: 0, y: 0 });
+  const isAnimatingRef = useRef(false);
   const leaveTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  // Smooth lerp loop for floating image
-  useEffect(() => {
+  const startAnimation = () => {
+    if (isAnimatingRef.current) return;
+    isAnimatingRef.current = true;
     const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
+
     const animate = () => {
-      setSmoothPos(prev => ({
-        x: lerp(prev.x, targetRef.current.x, 0.12),
-        y: lerp(prev.y, targetRef.current.y, 0.12),
-      }));
-      rafRef.current = requestAnimationFrame(animate);
+      currentPosRef.current.x = lerp(currentPosRef.current.x, targetRef.current.x, 0.15);
+      currentPosRef.current.y = lerp(currentPosRef.current.y, targetRef.current.y, 0.15);
+
+      if (floatingRef.current) {
+        floatingRef.current.style.transform = `translate3d(${currentPosRef.current.x + 32}px, ${currentPosRef.current.y - 130}px, 0)`;
+      }
+
+      if (isAnimatingRef.current) {
+        rafRef.current = requestAnimationFrame(animate);
+      }
     };
     rafRef.current = requestAnimationFrame(animate);
-    return () => cancelAnimationFrame(rafRef.current);
+  };
+
+  const stopAnimation = () => {
+    isAnimatingRef.current = false;
+    if (rafRef.current) {
+      cancelAnimationFrame(rafRef.current);
+      rafRef.current = 0;
+    }
+  };
+
+  useEffect(() => {
+    return () => {
+      stopAnimation();
+      if (leaveTimerRef.current) clearTimeout(leaveTimerRef.current);
+    };
   }, []);
 
   const handleMouseMove = (e: React.MouseEvent) => {
@@ -46,16 +69,19 @@ const PortfolioList: React.FC<PortfolioListProps> = () => {
       x: e.clientX - rect.left,
       y: e.clientY - rect.top,
     };
+    if (!isAnimatingRef.current && visible) {
+      startAnimation();
+    }
   };
 
   const handleMouseEnter = (id: string) => {
-    // Cancel any pending leave timer so switching items is instant
     if (leaveTimerRef.current) {
       clearTimeout(leaveTimerRef.current);
       leaveTimerRef.current = null;
     }
     setHoveredId(id);
     setVisible(true);
+    startAnimation();
   };
 
   const handleMouseLeave = () => {
@@ -63,6 +89,7 @@ const PortfolioList: React.FC<PortfolioListProps> = () => {
     leaveTimerRef.current = setTimeout(() => {
       setHoveredId(null);
       leaveTimerRef.current = null;
+      stopAnimation();
     }, 250);
   };
 
@@ -74,20 +101,25 @@ const PortfolioList: React.FC<PortfolioListProps> = () => {
     >
       {/* Floating image  hanya desktop, ikut kursor */}
       <div
-        className="pointer-events-none absolute z-30 hidden lg:block"
+        ref={floatingRef}
+        className="pointer-events-none absolute z-30 hidden lg:block top-0 left-0 will-change-transform"
         style={{
-          left: smoothPos.x + 32,
-          top: smoothPos.y - 130,
           opacity: visible && hoveredId ? 1 : 0,
-          transform: `scale(${visible && hoveredId ? 1 : 0.88}) rotate(${visible ? '-2deg' : '0deg'})`,
-          transition: 'opacity 0.3s ease, transform 0.3s ease',
+          transition: 'opacity 0.25s ease',
         }}
       >
         {hoveredId && PROJECT_IMAGES[hoveredId] && (
-          <div className="w-60 rounded-2xl overflow-hidden shadow-2xl ring-1 ring-black/10">
+          <div
+            className="w-60 rounded-2xl overflow-hidden shadow-2xl ring-1 ring-black/10 transition-transform duration-300 ease-out"
+            style={{
+              transform: `scale(${visible && hoveredId ? 1 : 0.88}) rotate(${visible ? '-2deg' : '0deg'})`,
+            }}
+          >
             <img
               src={PROJECT_IMAGES[hoveredId]}
               alt="preview"
+              loading="lazy"
+              decoding="async"
               className="w-full h-40 object-cover"
             />
           </div>
@@ -197,7 +229,7 @@ interface ProcessAndWorksSectionProps {
   language: Language;
 }
 
-export const ProcessAndWorksSection: React.FC<ProcessAndWorksSectionProps> = ({
+export const ProcessAndWorksSection: React.FC<ProcessAndWorksSectionProps> = React.memo(({
   darkMode, onSelectProject, onOpenWhatsApp, language,
 }) => {
   const tr = t[language].process;
@@ -284,4 +316,6 @@ export const ProcessAndWorksSection: React.FC<ProcessAndWorksSectionProps> = ({
       </div>
     </section>
   );
-};
+});
+
+ProcessAndWorksSection.displayName = 'ProcessAndWorksSection';

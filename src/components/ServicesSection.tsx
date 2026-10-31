@@ -10,7 +10,7 @@ interface ServicesSectionProps {
 }
 
 
-export const ServicesSection: React.FC<ServicesSectionProps> = ({ darkMode, onOpenWhatsApp, language }) => {
+export const ServicesSection: React.FC<ServicesSectionProps> = React.memo(({ darkMode, onOpenWhatsApp, language }) => {
   const tr = t[language].services;
   const serviceIcons = [<Smartphone size={22} />, <PieChart size={22} />, <Sparkles size={22} />, <Building2 size={22} />, <Calendar size={22} />];
   const serviceColors = [
@@ -30,44 +30,12 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ darkMode, onOp
     ...serviceColors[i],
   }));
   const [activeId, setActiveId] = useState<string>('website');
-  const [smoothPos, setSmoothPos] = useState({ x: 0, y: 0 });
-  const [visible, setVisible] = useState(false);
   const accordionRef = useRef<HTMLDivElement>(null);
-  const targetRef = useRef({ x: 0, y: 0 });
-  const rafRef = useRef<number>(0);
   const leaveTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  // Smooth lerp loop  sama seperti Karya Kami
-  useEffect(() => {
-    const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
-    const animate = () => {
-      setSmoothPos(prev => ({
-        x: lerp(prev.x, targetRef.current.x, 0.12),
-        y: lerp(prev.y, targetRef.current.y, 0.12),
-      }));
-      rafRef.current = requestAnimationFrame(animate);
-    };
-    rafRef.current = requestAnimationFrame(animate);
-    return () => cancelAnimationFrame(rafRef.current);
-  }, []);
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!accordionRef.current) return;
-    const rect = accordionRef.current.getBoundingClientRect();
-    targetRef.current = {
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top,
-    };
-  };
 
   const handleTouchMove = (e: React.TouchEvent) => {
     if (!accordionRef.current) return;
     const touch = e.touches[0];
-    const rect = accordionRef.current.getBoundingClientRect();
-    targetRef.current = {
-      x: touch.clientX - rect.left,
-      y: touch.clientY - rect.top,
-    };
     // Cari card mana yang sedang disentuh
     const el = document.elementFromPoint(touch.clientX, touch.clientY);
     const card = el?.closest('[data-service-id]');
@@ -80,14 +48,11 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ darkMode, onOp
   const handleMouseEnter = (id: string) => {
     if (leaveTimerRef.current) { clearTimeout(leaveTimerRef.current); leaveTimerRef.current = null; }
     setActiveId(id);
-    setVisible(true);
   };
 
   const handleMouseLeave = () => {
-    setVisible(false);
     leaveTimerRef.current = setTimeout(() => {
       setActiveId('website');
-      setVisible(false);
       leaveTimerRef.current = null;
     }, 250);
   };
@@ -125,7 +90,6 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ darkMode, onOp
             <div
               ref={accordionRef}
               className="hidden lg:flex gap-3 h-[420px] relative"
-              onMouseMove={handleMouseMove}
               onMouseLeave={handleMouseLeave}
               onTouchMove={handleTouchMove}
               onTouchEnd={handleMouseLeave}
@@ -265,4 +229,6 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ darkMode, onOp
       </div>
     </section>
   );
-};
+});
+
+ServicesSection.displayName = 'ServicesSection';
