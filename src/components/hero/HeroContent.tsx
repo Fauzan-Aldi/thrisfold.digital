@@ -47,7 +47,7 @@ export const HeroContent: React.FC<HeroContentProps> = ({ onOpenWhatsApp, langua
   }, [words.length]);
 
   const handleWhatsAppClick = () => {
-    onOpenWhatsApp('Halo karsa digital, saya ingin konsultasi mengenai sistem digital untuk bisnis saya.');
+    onOpenWhatsApp('Halo bren digital, saya ingin konsultasi mengenai sistem digital untuk bisnis saya.');
   };
 
   const handleLayananClick = () => {

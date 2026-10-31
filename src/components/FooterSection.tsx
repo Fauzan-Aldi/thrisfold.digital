@@ -33,7 +33,7 @@ export const FooterSection: React.FC<FooterSectionProps> = ({ onOpenWhatsApp, da
           </p>
           <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
             <button
-              onClick={() => onOpenWhatsApp('Halo karsa digital, yuk ngobrol dulu mengenai peluang sistem untuk bisnis saya.')}
+              onClick={() => onOpenWhatsApp('Halo bren digital, yuk ngobrol dulu mengenai peluang sistem untuk bisnis saya.')}
               className="w-full sm:w-auto bg-[#0EA5E9] hover:bg-[#0284C7] text-[#0d0d0d] font-bold font-['Manrope'] text-sm sm:text-base px-8 py-4 rounded-full flex items-center justify-center gap-3 transition-transform hover:scale-105 shadow-xl"
             >
               <MessageSquare size={18} />

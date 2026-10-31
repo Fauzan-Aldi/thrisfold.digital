@@ -28,7 +28,7 @@ export default function App() {
   }, [darkMode]);
 
   const handleOpenWhatsApp = (note?: string) => {
-    const msg = note || 'Halo karsa digital, saya ingin konsultasi mengenai sistem digital untuk bisnis saya.';
+    const msg = note || 'Halo bren digital, saya ingin konsultasi mengenai sistem digital untuk bisnis saya.';
     const phone = '6285363407399';
     const url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
     window.open(url, '_blank');

@@ -54,7 +54,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           <span className={`text-2xl font-black font-['Hanken_Grotesk'] tracking-tight transition-colors duration-300 ${
             scrolled ? 'text-[#0d0d0d]' : 'text-white'
           }`}>
-            karsa<span className="text-[#0EA5E9]">.digital</span>
+            bren<span className="text-[#0EA5E9]">.digital</span>
           </span>
         </a>
 

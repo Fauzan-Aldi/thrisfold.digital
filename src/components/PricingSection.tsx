@@ -15,7 +15,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ darkMode, onOpen
     name: pkg.name,
     price: pkg.price,
     period: pkg.period,
-    wa: `Halo karsa digital, saya berminat dengan ${pkg.name}.`,
+    wa: `Halo bren digital, saya berminat dengan ${pkg.name}.`,
   }));
 
   return (

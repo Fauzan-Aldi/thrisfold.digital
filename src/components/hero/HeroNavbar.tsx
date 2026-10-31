@@ -32,7 +32,7 @@ export const HeroNavbar: React.FC<HeroNavbarProps> = ({ darkMode, setDarkMode })
             className="flex items-center gap-1 group cursor-pointer"
           >
             <span className="text-2xl sm:text-3xl lg:text-4xl font-black font-['Space_Grotesk'] tracking-tight">
-              <span className="text-black">karsa</span>
+              <span className="text-black">bren</span>
               <span className="text-[#0EA5E9]">.digital</span>
             </span>
           </button>
