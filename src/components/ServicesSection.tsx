@@ -126,8 +126,8 @@ export const ServicesSection: React.FC<ServicesSectionProps> = React.memo(({ dar
                         className="absolute inset-0 transition-all duration-300"
                         style={{
                           background: isOpen
-                            ? `linear-gradient(to top, ${svc.color}f2 0%, ${svc.color}88 40%, transparent 100%)`
-                            : 'linear-gradient(to top, rgba(13,13,13,0.88) 0%, rgba(13,13,13,0.3) 45%, rgba(13,13,13,0.5) 100%)',
+                            ? `linear-gradient(to top, ${svc.color}f0 0%, ${svc.color}99 40%, rgba(0,0,0,0.1) 70%, transparent 100%)`
+                            : 'linear-gradient(to top, rgba(10,15,30,0.92) 0%, rgba(10,15,30,0.45) 38%, transparent 62%)',
                         }}
                       />
                     </div>

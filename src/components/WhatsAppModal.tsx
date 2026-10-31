@@ -29,7 +29,7 @@ export const WhatsAppModal: React.FC<WhatsAppModalProps> = ({
 
   if (!isOpen) return null;
 
-  const targetPhoneNumber = '6285363407399'; // bren digital official consultation number
+  const targetPhoneNumber = '6283844575235'; // bren digital official consultation number
 
   const buildMessage = () => {
     return `Halo Tim bren digital 👋%0A%0ASaya ingin konsultasi pembuatan sistem digital:%0A• *Nama*: ${name || '-'}` +

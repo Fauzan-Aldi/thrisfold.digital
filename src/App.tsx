@@ -29,7 +29,7 @@ export default function App() {
 
   const handleOpenWhatsApp = useCallback((note?: string) => {
     const msg = note || 'Halo bren digital, saya ingin konsultasi mengenai sistem digital untuk bisnis saya.';
-    const phone = '6285363407399';
+    const phone = '6283844575235';
     const url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
     window.open(url, '_blank');
   }, []);
