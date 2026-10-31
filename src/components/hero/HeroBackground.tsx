@@ -20,81 +20,38 @@ export const HeroBackground: React.FC<HeroBackgroundProps> = React.memo(() => {
         }}
       />
 
-      {/* Topographic Contour Wave Lines (Vector concept matching reference exactly) */}
+      {/* Simple, minimal contour lines framing top and bottom - no lines crossing the text */}
       <svg
-        className="absolute inset-0 w-full h-full pointer-events-none opacity-85"
+        className="absolute inset-0 w-full h-full pointer-events-none"
         viewBox="0 0 1024 488"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         preserveAspectRatio="xMidYMid slice"
+        style={{
+          maskImage: 'radial-gradient(ellipse 70% 55% at 50% 50%, transparent 20%, black 75%)',
+          WebkitMaskImage: 'radial-gradient(ellipse 70% 55% at 50% 50%, transparent 20%, black 75%)',
+        }}
       >
-        {/* Sweeping concentric curved arcs matching reference */}
+        {/* Subtle Top Accent Arcs (framing the upper zone above text) */}
         <path
-          d="M 120 -40 C 150 110, 290 220, 520 310 C 730 390, 910 430, 1080 450"
-          stroke="rgba(255, 255, 255, 0.16)"
-          strokeWidth="1.2"
-        />
-        <path
-          d="M 330 -40 C 360 100, 480 200, 680 280 C 860 350, 990 380, 1080 395"
-          stroke="rgba(147, 197, 253, 0.22)"
-          strokeWidth="1.3"
-        />
-        <path
-          d="M 540 -40 C 570 80, 670 170, 830 235 C 960 290, 1040 315, 1080 325"
-          stroke="rgba(255, 255, 255, 0.18)"
-          strokeWidth="1.2"
-        />
-        <path
-          d="M 740 -40 C 770 60, 850 130, 970 180 C 1030 205, 1060 215, 1080 220"
-          stroke="rgba(147, 197, 253, 0.20)"
-          strokeWidth="1.2"
-        />
-
-        {/* Counter-arcs around top-left */}
-        <path
-          d="M -40 160 C 80 175, 220 150, 320 90 C 390 45, 430 -10, 450 -40"
+          d="M -50 80 C 220 50, 480 110, 780 70 C 920 50, 1020 80, 1080 75"
           stroke="rgba(255, 255, 255, 0.14)"
           strokeWidth="1.2"
         />
         <path
-          d="M -40 280 C 90 290, 230 260, 330 190 C 410 130, 450 60, 470 -40"
+          d="M 180 -40 C 240 60, 380 120, 560 130 C 740 140, 920 90, 1080 80"
           stroke="rgba(147, 197, 253, 0.18)"
           strokeWidth="1.2"
         />
 
-        {/* Horizontal undulating topographic contour lines */}
+        {/* Subtle Bottom Accent Waves (framing the bottom zone below buttons) */}
         <path
-          d="M -40 60 C 220 78, 480 48, 720 68 C 880 82, 1000 62, 1080 65"
-          stroke="rgba(255, 255, 255, 0.12)"
-          strokeWidth="1.1"
-        />
-        <path
-          d="M -40 120 C 180 138, 460 98, 730 132 C 890 148, 1010 118, 1080 122"
+          d="M -50 410 C 200 425, 460 395, 720 415 C 880 430, 1000 410, 1080 415"
           stroke="rgba(147, 197, 253, 0.16)"
           strokeWidth="1.2"
         />
         <path
-          d="M -40 180 C 170 196, 440 158, 700 188 C 860 204, 1000 172, 1080 176"
-          stroke="rgba(255, 255, 255, 0.14)"
-          strokeWidth="1.1"
-        />
-        <path
-          d="M -40 240 C 210 256, 470 218, 730 242 C 880 258, 1010 228, 1080 232"
-          stroke="rgba(147, 197, 253, 0.18)"
-          strokeWidth="1.2"
-        />
-        <path
-          d="M -40 300 C 170 318, 450 278, 720 308 C 880 324, 1000 294, 1080 298"
-          stroke="rgba(255, 255, 255, 0.13)"
-          strokeWidth="1.1"
-        />
-        <path
-          d="M -40 360 C 210 376, 490 338, 750 368 C 900 384, 1010 354, 1080 358"
-          stroke="rgba(147, 197, 253, 0.17)"
-          strokeWidth="1.2"
-        />
-        <path
-          d="M -40 420 C 190 436, 470 398, 730 428 C 890 444, 1000 414, 1080 418"
+          d="M -50 455 C 240 445, 520 470, 780 450 C 920 440, 1020 460, 1080 455"
           stroke="rgba(255, 255, 255, 0.12)"
           strokeWidth="1.1"
         />
