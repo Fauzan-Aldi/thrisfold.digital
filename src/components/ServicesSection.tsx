@@ -15,7 +15,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = React.memo(({ dar
   const tr = t[language].services;
   const serviceIcons = [<Smartphone size={22} />, <PieChart size={22} />, <Sparkles size={22} />, <Building2 size={22} />, <Calendar size={22} />];
   const serviceColors = [
-    { color: '#0EA5E9', textColor: '#ffffff', image: 'https://images.unsplash.com/photo-1508873535684-277a3cbcc4e8?auto=format&fit=crop&w=1200&q=80' },
+    { color: '#0EA5E9', textColor: '#ffffff', image: '/website-collage.png' },
     { color: '#1b388e', textColor: '#ffffff', image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80' },
     { color: '#0d1527', textColor: '#FACC15', image: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=1200&q=80' },
     { color: '#172554', textColor: '#ffffff', image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1200&q=80' },
@@ -114,31 +114,32 @@ export const ServicesSection: React.FC<ServicesSectionProps> = React.memo(({ dar
                     }}
                     className="relative rounded-3xl overflow-hidden cursor-pointer select-none"
                   >
-                    {/* Background image  selalu di-render, opacity toggle */}
-                    <div
-                      style={{ opacity: isOpen ? 1 : 0, transition: 'opacity 0.2s ease' }}
-                      className="absolute inset-0"
-                    >
+                    {/* Background image - selalu nampak (sekilas saat collapsed seperti referensi) */}
+                    <div className="absolute inset-0">
                       <img
                         src={svc.image}
                         alt={svc.label}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover transition-transform duration-500"
                         loading="eager"
                       />
                       <div
-                        className="absolute inset-0"
-                        style={{ background: `linear-gradient(to top, ${svc.color}ee 0%, ${svc.color}88 40%, transparent 100%)` }}
+                        className="absolute inset-0 transition-all duration-300"
+                        style={{
+                          background: isOpen
+                            ? `linear-gradient(to top, ${svc.color}f2 0%, ${svc.color}88 40%, transparent 100%)`
+                            : 'linear-gradient(to top, rgba(13,13,13,0.88) 0%, rgba(13,13,13,0.3) 45%, rgba(13,13,13,0.5) 100%)',
+                        }}
                       />
                     </div>
 
                     {/* Collapsed label */}
                     <div
-                      style={{ opacity: isOpen ? 0 : 1, transition: 'opacity 0.3s ease', pointerEvents: isOpen ? 'none' : 'auto' }}
-                      className="absolute inset-0 flex flex-col items-center justify-end pb-6 px-3"
+                      style={{ opacity: isOpen ? 0 : 1, transition: 'opacity 0.25s ease', pointerEvents: isOpen ? 'none' : 'auto' }}
+                      className="absolute inset-0 flex flex-col items-center justify-end pb-6 px-3 z-10"
                     >
-                      <div style={{ color: svc.textColor }} className="flex flex-col items-center gap-3">
-                        <div className="opacity-80">{svc.icon}</div>
-                        <span className="text-xs font-black uppercase tracking-widest font-['Geist'] whitespace-nowrap"
+                      <div className="flex flex-col items-center gap-3 text-white">
+                        <div className="opacity-90 drop-shadow-sm">{svc.icon}</div>
+                        <span className="text-xs font-black uppercase tracking-widest font-['Geist'] whitespace-nowrap drop-shadow-md"
                           style={{ writingMode: 'vertical-rl', textOrientation: 'mixed', transform: 'rotate(180deg)' }}>
                           {svc.label}
                         </span>
@@ -181,12 +182,16 @@ export const ServicesSection: React.FC<ServicesSectionProps> = React.memo(({ dar
                     style={{ backgroundColor: svc.color }}
                   >
                     {/* Background image */}
-                    <div
-                      className="absolute inset-0"
-                      style={{ opacity: isOpen ? 1 : 0, transition: 'opacity 0.4s ease' }}
-                    >
+                    <div className="absolute inset-0">
                       <img src={svc.image} alt={svc.label} className="w-full h-full object-cover" />
-                      <div className="absolute inset-0" style={{ background: `linear-gradient(to top, ${svc.color}f0 0%, ${svc.color}66 60%, transparent 100%)` }} />
+                      <div
+                        className="absolute inset-0 transition-all duration-300"
+                        style={{
+                          background: isOpen
+                            ? `linear-gradient(to top, ${svc.color}f0 0%, ${svc.color}66 60%, transparent 100%)`
+                            : 'linear-gradient(to top, rgba(13,13,13,0.85) 0%, rgba(13,13,13,0.4) 60%, rgba(13,13,13,0.6) 100%)',
+                        }}
+                      />
                     </div>
 
                     {/* Collapsed row */}
