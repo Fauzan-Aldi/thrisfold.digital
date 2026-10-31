@@ -3,37 +3,29 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const input = path.join(__dirname, '../public/favicon.png');
+const input = path.join(__dirname, '../public/logo.png');
 const output = path.join(__dirname, '../public/favicon.png');
 
 const CANVAS = 512;
+const LOGO_SIZE = 360;
 
-// Get original image metadata
-const meta = await sharp(input).metadata();
-console.log(`Original: ${meta.width}x${meta.height}`);
-
-// Scale logo to 90% of canvas width (bigger)
-const logoSize = Math.round(CANVAS * 0.90);
-
-// Resize logo
 const resized = await sharp(input)
-  .resize(logoSize, logoSize, { fit: 'contain', background: { r: 0, g: 0, b: 0, alpha: 0 } })
+  .resize(LOGO_SIZE, LOGO_SIZE, { fit: 'contain', background: { r: 0, g: 0, b: 0, alpha: 0 } })
   .toBuffer();
 
-// Position: center horizontally, push down ~15% from top
-const left = Math.round((CANVAS - logoSize) / 2);
-const top = Math.round(CANVAS * 0.10); // 10% from top = shifted down
+const left = Math.round((CANVAS - LOGO_SIZE) / 2);
+const top = Math.round((CANVAS - LOGO_SIZE) / 2);
 
-await sharp({
-  create: {
-    width: CANVAS,
-    height: CANVAS,
-    channels: 4,
-    background: { r: 0, g: 0, b: 0, alpha: 0 }
-  }
-})
+// White rounded squircle background for dark/light browser tab contrast
+const svgBackground = Buffer.from(
+  `<svg width="${CANVAS}" height="${CANVAS}" viewBox="0 0 ${CANVAS} ${CANVAS}">
+    <rect width="${CANVAS}" height="${CANVAS}" rx="112" fill="#ffffff"/>
+  </svg>`
+);
+
+await sharp(svgBackground)
   .composite([{ input: resized, left, top }])
-  .png()
+  .png({ compressionLevel: 9 })
   .toFile(output);
 
-console.log(`Done: favicon.png — logo ${logoSize}px, positioned left:${left} top:${top}`);
+console.log(`Generated favicon.png (${CANVAS}x${CANVAS}) with white rounded squircle background.`);

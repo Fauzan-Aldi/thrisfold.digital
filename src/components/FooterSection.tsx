@@ -47,6 +47,12 @@ export const FooterSection: React.FC<FooterSectionProps> = React.memo(({ onOpenW
       {/* FOOTER BAR */}
       <footer className="bg-[#f9fbe5] text-[#0d0d0d] py-8 px-4 sm:px-6 lg:px-8 border-t border-[#c5c9ac]/40" style={{ paddingBottom: 'max(2rem, env(safe-area-inset-bottom))' }}>
         <div className="max-w-7xl mx-auto flex flex-col items-center gap-3">
+          <div className="flex items-center gap-2">
+            <img src="/logo.png" alt="bren.digital logo" className="w-5 h-5 object-contain" />
+            <span className="font-['Hanken_Grotesk'] text-sm font-black tracking-tight text-[#0d0d0d]">
+              bren<span className="text-[#CA8A04]">.digital</span>
+            </span>
+          </div>
           <p className="text-sm font-semibold text-[#0d0d0d] font-['Geist']">{tr.copyright}</p>
           <div className="flex items-center gap-8 text-xs font-semibold font-['Geist'] text-[#0d0d0d]">
             <button onClick={() => setActiveLegalModal('terms')} className="hover:text-[#CA8A04] transition-colors">{tr.terms}</button>

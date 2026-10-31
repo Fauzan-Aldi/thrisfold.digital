@@ -93,7 +93,7 @@ export const WhatsAppModal: React.FC<WhatsAppModalProps> = ({
             </div>
             <h4 className="font-['Hanken_Grotesk'] text-2xl font-bold">Membuka WhatsApp...</h4>
             <p className="text-xs text-[#757a60] dark:text-[#c5c9ac]">
-              Kamu sedang dialihkan ke WhatsApp bayu digital. Tim kami akan segera merespons!
+              Kamu sedang dialihkan ke WhatsApp bren digital. Tim kami akan segera merespons!
             </p>
           </div>
         ) : (

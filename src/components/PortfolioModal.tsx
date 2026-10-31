@@ -108,7 +108,7 @@ export const PortfolioModal: React.FC<PortfolioModalProps> = React.memo(({
           <button
             onClick={() => {
               onClose();
-              onOpenWhatsApp(`Halo bayu digital, saya ingin konsultasi pembuatan sistem serupa ${project.title}.`);
+              onOpenWhatsApp(`Halo bren digital, saya ingin konsultasi pembuatan sistem serupa ${project.title}.`);
             }}
             className="flex-1 bg-[#0EA5E9] hover:bg-[#0EA5E9] text-[#0d0d0d] font-bold py-3.5 rounded-full flex items-center justify-center gap-2 shadow-md transition-transform hover:scale-105"
           >
