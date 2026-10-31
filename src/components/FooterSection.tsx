@@ -23,7 +23,7 @@ export const FooterSection: React.FC<FooterSectionProps> = React.memo(({ onOpenW
       {/* PRE-FOOTER CTA */}
       <section className="py-14 lg:py-28 px-4 sm:px-6 lg:px-8 border-t border-[#c5c9ac]/40 bg-[#f9fbe5]">
         <ScrollReveal direction="up" duration={800} className="max-w-4xl mx-auto text-center space-y-4 lg:space-y-6">
-          <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#d4ff00] text-[#0d0d0d] text-xs font-bold uppercase tracking-widest font-['Geist'] shadow-xs">
+          <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#FACC15] text-[#0d0d0d] text-xs font-bold uppercase tracking-widest font-['Geist'] shadow-xs">
             {tr.cta_badge}
           </span>
           <h2 className="font-['Hanken_Grotesk'] text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-[#0d0d0d]">
@@ -35,7 +35,7 @@ export const FooterSection: React.FC<FooterSectionProps> = React.memo(({ onOpenW
           <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
             <button
               onClick={() => onOpenWhatsApp('Halo bren digital, yuk ngobrol dulu mengenai peluang sistem untuk bisnis saya.')}
-              className="w-full sm:w-auto bg-[#d4ff00] hover:bg-[#bfe600] text-[#0d0d0d] font-bold font-['Manrope'] text-sm sm:text-base px-8 py-4 rounded-full flex items-center justify-center gap-3 transition-transform hover:scale-105 shadow-xl cursor-pointer"
+              className="w-full sm:w-auto bg-[#FACC15] hover:bg-[#EAB308] text-[#0d0d0d] font-bold font-['Manrope'] text-sm sm:text-base px-8 py-4 rounded-full flex items-center justify-center gap-3 transition-transform hover:scale-105 shadow-xl cursor-pointer"
             >
               <MessageSquare size={18} />
               <span>{tr.cta_btn}</span>
@@ -49,8 +49,8 @@ export const FooterSection: React.FC<FooterSectionProps> = React.memo(({ onOpenW
         <div className="max-w-7xl mx-auto flex flex-col items-center gap-3">
           <p className="text-sm font-semibold text-[#0d0d0d] font-['Geist']">{tr.copyright}</p>
           <div className="flex items-center gap-8 text-xs font-semibold font-['Geist'] text-[#0d0d0d]">
-            <button onClick={() => setActiveLegalModal('terms')} className="hover:text-[#0EA5E9] transition-colors">{tr.terms}</button>
-            <button onClick={() => setActiveLegalModal('privacy')} className="hover:text-[#0EA5E9] transition-colors">{tr.privacy}</button>
+            <button onClick={() => setActiveLegalModal('terms')} className="hover:text-[#CA8A04] transition-colors">{tr.terms}</button>
+            <button onClick={() => setActiveLegalModal('privacy')} className="hover:text-[#CA8A04] transition-colors">{tr.privacy}</button>
           </div>
         </div>
       </footer>
@@ -84,7 +84,7 @@ export const FooterSection: React.FC<FooterSectionProps> = React.memo(({ onOpenW
             </div>
             <button
               onClick={() => setActiveLegalModal(null)}
-              className="mt-6 w-full bg-[#0EA5E9] text-[#0d0d0d] font-bold py-3 rounded-full text-sm"
+              className="mt-6 w-full bg-[#FACC15] hover:bg-[#EAB308] text-[#0d0d0d] font-bold py-3 rounded-full text-sm transition-colors cursor-pointer"
             >
               Mengerti & Tutup
             </button>

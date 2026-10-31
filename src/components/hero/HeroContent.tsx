@@ -89,11 +89,11 @@ export const HeroContent: React.FC<HeroContentProps> = React.memo(({ onOpenWhats
           </h1>
           <h1 className="font-['Space_Grotesk'] text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-tight tracking-tight drop-shadow-sm text-white">
             <span 
-              className="text-[#d4ff00] inline-block font-black"
+              className="text-[#FACC15] inline-block font-black"
               key={currentWordIndex} 
               style={{ 
                 animation: 'wordFade 2s ease-in-out',
-                textShadow: '0 0 35px rgba(212, 255, 0, 0.45)'
+                textShadow: '0 0 35px rgba(250, 204, 21, 0.45)'
               }}
             >
               {words[currentWordIndex]}
@@ -107,14 +107,14 @@ export const HeroContent: React.FC<HeroContentProps> = React.memo(({ onOpenWhats
           {tr.sub}
         </p>
 
-        {/* CTA Buttons - Matching screenshot lime + dark text concept */}
+        {/* CTA Buttons - Matching yellow + dark text concept */}
         <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 w-full sm:w-auto px-4 sm:px-0">
           <button
             onClick={handleWhatsAppClick}
-            className="w-full sm:w-auto bg-[#d4ff00] hover:bg-[#bfe600] text-[#0d0d0d] font-extrabold font-['Space_Grotesk'] text-sm sm:text-base px-8 py-4 sm:px-9 sm:py-4.5 rounded-full transition-all duration-300 hover:scale-105 active:scale-95 shadow-xl flex items-center justify-center gap-3.5 group cursor-pointer"
+            className="w-full sm:w-auto bg-[#FACC15] hover:bg-[#EAB308] text-[#0d0d0d] font-extrabold font-['Space_Grotesk'] text-sm sm:text-base px-8 py-4 sm:px-9 sm:py-4.5 rounded-full transition-all duration-300 hover:scale-105 active:scale-95 shadow-xl flex items-center justify-center gap-3.5 group cursor-pointer"
           >
             <span>{tr.cta}</span>
-            <span className="w-7 h-7 rounded-full bg-[#0d0d0d] text-[#d4ff00] flex items-center justify-center group-hover:translate-x-1 transition-transform shrink-0 shadow-sm">
+            <span className="w-7 h-7 rounded-full bg-[#0d0d0d] text-[#FACC15] flex items-center justify-center group-hover:translate-x-1 transition-transform shrink-0 shadow-sm">
               <ArrowRight size={15} />
             </span>
           </button>

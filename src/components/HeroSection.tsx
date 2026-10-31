@@ -31,7 +31,7 @@ export const HeroSection: React.FC<HeroSectionProps> = React.memo(({ onOpenWhats
             Scroll
           </span>
           <div className="w-5 h-9 sm:w-6 sm:h-10 rounded-full border-2 border-white/50 group-hover:border-white flex justify-center pt-2 transition-colors shadow-sm bg-white/10 backdrop-blur-xs">
-            <div className="w-1.5 h-2.5 bg-[#d4ff00] rounded-full animate-bounce shadow-[0_0_8px_#d4ff00]" />
+            <div className="w-1.5 h-2.5 bg-[#FACC15] rounded-full animate-bounce shadow-[0_0_8px_#FACC15]" />
           </div>
         </button>
       </div>
