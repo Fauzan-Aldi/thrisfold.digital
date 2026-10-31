@@ -20,40 +20,55 @@ export const HeroBackground: React.FC<HeroBackgroundProps> = React.memo(() => {
         }}
       />
 
-      {/* Simple, minimal contour lines framing top and bottom - no lines crossing the text */}
+      {/* Sweeping arc lines matching Trifolds reference exactly */}
       <svg
         className="absolute inset-0 w-full h-full pointer-events-none"
-        viewBox="0 0 1024 488"
+        viewBox="0 0 1920 1080"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         preserveAspectRatio="xMidYMid slice"
-        style={{
-          maskImage: 'radial-gradient(ellipse 70% 55% at 50% 50%, transparent 20%, black 75%)',
-          WebkitMaskImage: 'radial-gradient(ellipse 70% 55% at 50% 50%, transparent 20%, black 75%)',
-        }}
       >
-        {/* Subtle Top Accent Arcs (framing the upper zone above text) */}
+        {/* Long sweeping arc from top-left curving down to bottom-right */}
         <path
-          d="M -50 80 C 220 50, 480 110, 780 70 C 920 50, 1020 80, 1080 75"
-          stroke="rgba(255, 255, 255, 0.14)"
-          strokeWidth="1.2"
-        />
-        <path
-          d="M 180 -40 C 240 60, 380 120, 560 130 C 740 140, 920 90, 1080 80"
-          stroke="rgba(147, 197, 253, 0.18)"
-          strokeWidth="1.2"
-        />
-
-        {/* Subtle Bottom Accent Waves (framing the bottom zone below buttons) */}
-        <path
-          d="M -50 410 C 200 425, 460 395, 720 415 C 880 430, 1000 410, 1080 415"
-          stroke="rgba(147, 197, 253, 0.16)"
-          strokeWidth="1.2"
-        />
-        <path
-          d="M -50 455 C 240 445, 520 470, 780 450 C 920 440, 1020 460, 1080 455"
+          d="M -100 50 C 200 80, 600 200, 900 450 C 1100 620, 1400 850, 1950 950"
           stroke="rgba(255, 255, 255, 0.12)"
-          strokeWidth="1.1"
+          strokeWidth="1"
+          fill="none"
+        />
+        {/* Arc from top-center curving to right edge */}
+        <path
+          d="M 400 -50 C 600 50, 900 250, 1150 500 C 1350 700, 1600 900, 1980 1000"
+          stroke="rgba(255, 255, 255, 0.10)"
+          strokeWidth="1"
+          fill="none"
+        />
+        {/* Arc from mid-top sweeping to far right */}
+        <path
+          d="M 700 -80 C 850 30, 1050 200, 1250 420 C 1400 580, 1650 800, 2000 920"
+          stroke="rgba(255, 255, 255, 0.11)"
+          strokeWidth="1"
+          fill="none"
+        />
+        {/* Tight arc from right-top curving down */}
+        <path
+          d="M 1100 -60 C 1200 60, 1350 250, 1500 480 C 1600 630, 1750 820, 1980 920"
+          stroke="rgba(255, 255, 255, 0.10)"
+          strokeWidth="1"
+          fill="none"
+        />
+        {/* Wide horizontal sweep across bottom third */}
+        <path
+          d="M -100 700 C 300 680, 700 750, 1100 700 C 1400 660, 1700 720, 2000 690"
+          stroke="rgba(255, 255, 255, 0.09)"
+          strokeWidth="1"
+          fill="none"
+        />
+        {/* Gentle arc from left edge mid-height sweeping right and down */}
+        <path
+          d="M -80 350 C 200 370, 500 450, 800 600 C 1050 720, 1400 860, 1950 980"
+          stroke="rgba(255, 255, 255, 0.10)"
+          strokeWidth="1"
+          fill="none"
         />
       </svg>
 
