@@ -1,225 +1,31 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState } from 'react';
 import { PROCESS_STEPS, PORTFOLIO_PROJECTS } from '../data/landingData';
 import { PortfolioProject, ProcessStep, Language } from '../types';
-import { Plus, X, ArrowUpRight } from 'lucide-react';
+import { Plus, X } from 'lucide-react';
 import { t } from '../data/translations';
 import { ScrollReveal } from './common/ScrollReveal';
 
-// Mockup images per project
-const PROJECT_IMAGES: Record<string, string> = {
-  'tulis-duit': 'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&q=80',
-  'laundry-app': 'https://images.unsplash.com/photo-1545173168-9f1947eebb7f?w=800&q=80',
-  'santriq': 'https://images.unsplash.com/photo-1585036156171-384164a8c675?w=800&q=80',
-  'rental-management': 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=800&q=80',
-  'internal-system': 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80',
-};
-
-interface PortfolioListProps {
-  onSelectProject: (project: PortfolioProject) => void;
-}
-
-const PortfolioList: React.FC<PortfolioListProps> = ({ onSelectProject }) => {
-  const [hoveredId, setHoveredId] = useState<string | null>(null);
-  const [visible, setVisible] = useState(false);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const floatingRef = useRef<HTMLDivElement>(null);
-  const rafRef = useRef<number>(0);
-  const targetRef = useRef({ x: 0, y: 0 });
-  const currentPosRef = useRef({ x: 0, y: 0 });
-  const isAnimatingRef = useRef(false);
-  const leaveTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  const startAnimation = () => {
-    if (isAnimatingRef.current) return;
-    isAnimatingRef.current = true;
-    const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
-
-    const animate = () => {
-      currentPosRef.current.x = lerp(currentPosRef.current.x, targetRef.current.x, 0.15);
-      currentPosRef.current.y = lerp(currentPosRef.current.y, targetRef.current.y, 0.15);
-
-      if (floatingRef.current) {
-        floatingRef.current.style.transform = `translate3d(${currentPosRef.current.x + 32}px, ${currentPosRef.current.y - 130}px, 0)`;
-      }
-
-      if (isAnimatingRef.current) {
-        rafRef.current = requestAnimationFrame(animate);
-      }
-    };
-    rafRef.current = requestAnimationFrame(animate);
-  };
-
-  const stopAnimation = () => {
-    isAnimatingRef.current = false;
-    if (rafRef.current) {
-      cancelAnimationFrame(rafRef.current);
-      rafRef.current = 0;
-    }
-  };
-
-  useEffect(() => {
-    return () => {
-      stopAnimation();
-      if (leaveTimerRef.current) clearTimeout(leaveTimerRef.current);
-    };
-  }, []);
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!containerRef.current) return;
-    const rect = containerRef.current.getBoundingClientRect();
-    targetRef.current = {
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top,
-    };
-    if (!isAnimatingRef.current && visible) {
-      startAnimation();
-    }
-  };
-
-  const handleMouseEnter = (id: string) => {
-    if (leaveTimerRef.current) {
-      clearTimeout(leaveTimerRef.current);
-      leaveTimerRef.current = null;
-    }
-    setHoveredId(id);
-    setVisible(true);
-    startAnimation();
-  };
-
-  const handleMouseLeave = () => {
-    setVisible(false);
-    leaveTimerRef.current = setTimeout(() => {
-      setHoveredId(null);
-      leaveTimerRef.current = null;
-      stopAnimation();
-    }, 250);
-  };
-
+const PortfolioList: React.FC = () => {
   return (
-    <div
-      ref={containerRef}
-      className="relative overflow-visible"
-      onMouseMove={handleMouseMove}
-    >
-      {/* Floating image  hanya desktop, ikut kursor */}
-      <div
-        ref={floatingRef}
-        className="pointer-events-none absolute z-30 hidden lg:block top-0 left-0 will-change-transform"
-        style={{
-          opacity: visible && hoveredId ? 1 : 0,
-          transition: 'opacity 0.25s ease',
-        }}
-      >
-        {hoveredId && PROJECT_IMAGES[hoveredId] && (
-          <div
-            className="w-60 rounded-2xl overflow-hidden shadow-2xl ring-1 ring-black/10 transition-transform duration-300 ease-out"
-            style={{
-              transform: `scale(${visible && hoveredId ? 1 : 0.88}) rotate(${visible ? '-2deg' : '0deg'})`,
-            }}
-          >
-            <img
-              src={PROJECT_IMAGES[hoveredId]}
-              alt="preview"
-              loading="lazy"
-              decoding="async"
-              className="w-full h-40 object-cover"
-            />
+    <div className="divide-y divide-[#c5c9ac]/50">
+      {PORTFOLIO_PROJECTS.map((project) => (
+        <div
+          key={project.id}
+          className="py-6 sm:py-8 flex flex-col gap-2 cursor-default select-none"
+        >
+          <div className="flex flex-wrap items-center gap-3">
+            <h3 className="font-['Hanken_Grotesk'] text-xl sm:text-2xl md:text-3xl font-extrabold text-[#0d0d0d] leading-tight">
+              {project.title}
+            </h3>
+            <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-[#0EA5E9]/15 text-[#0EA5E9] font-['Geist'] uppercase tracking-wider">
+              {project.category}
+            </span>
           </div>
-        )}
-      </div>
-
-      {/* List rows */}
-      <div className="divide-y divide-[#c5c9ac]/50">
-        {PORTFOLIO_PROJECTS.map((project) => {
-          const isHovered = hoveredId === project.id;
-          const isOther = !!hoveredId && !isHovered;
-          return (
-            <div
-              key={project.id}
-              onMouseEnter={() => handleMouseEnter(project.id)}
-              onMouseLeave={handleMouseLeave}
-              onClick={() => onSelectProject(project)}
-              className="group py-6 flex flex-col gap-0 cursor-pointer select-none"
-              style={{ transition: 'opacity 0.2s ease' }}
-            >
-              {/* Row utama */}
-              <div className="flex items-center justify-between gap-6">
-                <div
-                  className="flex-1 min-w-0"
-                  style={{
-                    transform: isHovered ? 'translateX(8px)' : 'translateX(0px)',
-                    transition: 'transform 0.3s cubic-bezier(0.4,0,0.2,1)',
-                  }}
-                >
-                  {/* Title with animated underline */}
-                  <div className="relative inline-block">
-                    <h3
-                      className="font-['Hanken_Grotesk'] text-xl sm:text-3xl md:text-4xl font-extrabold leading-tight"
-                      style={{
-                        color: isOther ? '#aaa' : '#0d0d0d',
-                        transition: 'color 0.25s ease',
-                      }}
-                    >
-                      {project.title}
-                    </h3>
-                    {/* Underline bar */}
-                    <span
-                      className="block h-[3px] rounded-full bg-[#0EA5E9] mt-1"
-                      style={{
-                        width: isHovered ? '100%' : '0%',
-                        transition: 'width 0.35s cubic-bezier(0.4,0,0.2,1)',
-                      }}
-                    />
-                  </div>
-                  <p
-                    className="mt-1 font-['Manrope'] text-sm"
-                    style={{
-                      color: isOther ? '#aaa' : '#555',
-                      transition: 'color 0.25s ease',
-                    }}
-                  >
-                    {project.subtitle}
-                  </p>
-                </div>
-
-                {/* Arrow button */}
-                <div
-                  className="shrink-0 w-9 h-9 rounded-full border flex items-center justify-center"
-                  style={{
-                    backgroundColor: isHovered ? '#0EA5E9' : 'transparent',
-                    borderColor: isHovered ? '#0EA5E9' : '#c5c9ac',
-                    color: isHovered ? '#0d0d0d' : '#888',
-                    transform: isHovered ? 'rotate(45deg) scale(1.1)' : 'rotate(0deg) scale(1)',
-                    transition: 'all 0.3s cubic-bezier(0.4,0,0.2,1)',
-                  }}
-                >
-                  <ArrowUpRight size={16} />
-                </div>
-              </div>
-
-              {/* Thumbnail inline  hanya mobile, muncul saat di-tap */}
-              <div
-                className="lg:hidden overflow-hidden"
-                style={{
-                  maxHeight: isHovered ? '200px' : '0px',
-                  opacity: isHovered ? 1 : 0,
-                  transition: 'max-height 0.4s cubic-bezier(0.4,0,0.2,1), opacity 0.3s ease',
-                }}
-              >
-                {PROJECT_IMAGES[project.id] && (
-                  <div className="mt-4 rounded-2xl overflow-hidden shadow-lg ring-1 ring-black/10">
-                    <img
-                      src={PROJECT_IMAGES[project.id]}
-                      alt={project.title}
-                      className="w-full h-44 object-cover"
-                    />
-                  </div>
-                )}
-              </div>
-            </div>
-          );
-        })}
-      </div>
+          <p className="font-['Manrope'] text-sm sm:text-base text-[#444] leading-relaxed max-w-3xl">
+            {project.description}
+          </p>
+        </div>
+      ))}
     </div>
   );
 };
@@ -311,7 +117,7 @@ export const ProcessAndWorksSection: React.FC<ProcessAndWorksSectionProps> = Rea
               {tr.portfolioBadge}
             </span>
 
-            <PortfolioList onSelectProject={onSelectProject} />
+            <PortfolioList />
           </div>
         </ScrollReveal>
 
