@@ -15,7 +15,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = React.memo(({ dar
   const tr = t[language].services;
   const serviceIcons = [<Smartphone size={22} />, <PieChart size={22} />, <Sparkles size={22} />, <Building2 size={22} />, <Calendar size={22} />];
   const serviceColors = [
-    { color: '#0EA5E9', textColor: '#ffffff', image: '/website-collage.png' },
+    { color: '#0EA5E9', textColor: '#ffffff', image: '/website-showcase-new.jpg' },
     { color: '#1b388e', textColor: '#ffffff', image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80' },
     { color: '#0d1527', textColor: '#FACC15', image: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=1200&q=80' },
     { color: '#172554', textColor: '#ffffff', image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1200&q=80' },
