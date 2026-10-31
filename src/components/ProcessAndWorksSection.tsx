@@ -7,17 +7,18 @@ import { ScrollReveal } from './common/ScrollReveal';
 
 // Mockup images per project
 const PROJECT_IMAGES: Record<string, string> = {
-  'brosur-online': 'https://lh3.googleusercontent.com/aida-public/AB6AXuBwaJKztO8E-FugmQbxuRkD78d7nzY1lL0Q2vPGrHdzRhDyjxojFNq5awtnQ2zkOFkoPBy_e11o9EP7B5E6syhK-ALdE5TpnO_zsv20Ct42qCdJU4od7EeEnR2cwQcYRea4f0lVEdp1d4pdAE6ZTE9LHfNtiaSbBwcPXyr_LLpWE2g_JUmmPgOvHB7dknDwpM2nzHUG1IAm0RinyKSdJf4o8viLrckjmt0D3s0gsxjzFIfxNK1ubasaEWPdiafHhi4mHoUiK2EeAi8',
-  'vaneshub': 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80',
-  'foto-produk-ai': 'https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=600&q=80',
-  'hotel-booking-system': 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&q=80',
+  'tulis-duit': 'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&q=80',
+  'laundry-app': 'https://images.unsplash.com/photo-1545173168-9f1947eebb7f?w=800&q=80',
+  'santriq': 'https://images.unsplash.com/photo-1585036156171-384164a8c675?w=800&q=80',
+  'rental-management': 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=800&q=80',
+  'internal-system': 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80',
 };
 
 interface PortfolioListProps {
-  // no props needed
+  onSelectProject: (project: PortfolioProject) => void;
 }
 
-const PortfolioList: React.FC<PortfolioListProps> = () => {
+const PortfolioList: React.FC<PortfolioListProps> = ({ onSelectProject }) => {
   const [hoveredId, setHoveredId] = useState<string | null>(null);
   const [visible, setVisible] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -137,8 +138,8 @@ const PortfolioList: React.FC<PortfolioListProps> = () => {
               key={project.id}
               onMouseEnter={() => handleMouseEnter(project.id)}
               onMouseLeave={handleMouseLeave}
-              onClick={() => setHoveredId(isHovered ? null : project.id)}
-              className="group py-6 flex flex-col gap-0 cursor-default select-none"
+              onClick={() => onSelectProject(project)}
+              className="group py-6 flex flex-col gap-0 cursor-pointer select-none"
               style={{ transition: 'opacity 0.2s ease' }}
             >
               {/* Row utama */}
@@ -310,7 +311,7 @@ export const ProcessAndWorksSection: React.FC<ProcessAndWorksSectionProps> = Rea
               {tr.portfolioBadge}
             </span>
 
-            <PortfolioList />
+            <PortfolioList onSelectProject={onSelectProject} />
           </div>
         </ScrollReveal>
 

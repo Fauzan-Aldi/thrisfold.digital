@@ -6,92 +6,114 @@ export const MOCKUP_IMAGE_URL = "https://lh3.googleusercontent.com/aida-public/A
 
 export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
   {
-    id: 'brosur-online',
-    title: 'Brosur Online',
-    category: 'Sistem Pemesanan & Izin',
-    subtitle: 'Aplikasi pemesanan menu cerdik & pengawas izin murid boarding school.',
-    description: 'Sistem digitalisasi catalog interaktif dengan modul pemesanan langsung via WhatsApp, manajemen inventoris produk, dan tracker izin keluar murid sekolah berasrama.',
+    id: 'tulis-duit',
+    title: 'Tulis Duit',
+    category: 'Fintech & WhatsApp Bot',
+    subtitle: 'Aplikasi pencatatan keuangan praktis berbasis WhatsApp tanpa pencatatan manual.',
+    description: 'Aplikasi pencatatan keuangan berbasis WhatsApp yang membantu pengguna mengelola pemasukan, pengeluaran, dan laporan keuangan secara praktis tanpa pencatatan manual.',
     fullDetails: [
-      'Katalog produk interaktif & cepat dibuka tanpa install aplikasi',
-      'Integrasi direct WhatsApp order dengan ringkasan invoice otomatis',
-      'Sistem perizinan keluar murid boarding school berbasis QR Code & SMS/WA notification',
-      'Dashboard laporan penjualan & statistik pemesanan harian'
+      'Pencatatan mutasi pengeluaran & pemasukan harian otomatis via pesan WhatsApp',
+      'Kategorisasi transaksi pintar berbasis pengenalan teks otomatis',
+      'Ekspor laporan keuangan berkala (harian, mingguan, bulanan) dalam format PDF & Excel',
+      'Dashboard grafik arus kas dan analisis budget hemat tanpa perlu instal aplikasi tambahan'
     ],
-    techStack: ['React', 'Node.js', 'WhatsApp Business API', 'Tailwind CSS', 'PWA'],
+    techStack: ['WhatsApp Business API', 'Node.js', 'Express', 'PostgreSQL', 'Tailwind CSS'],
     metrics: [
-      { label: 'Efisiensi Izin', value: '+85%' },
-      { label: 'Konversi Pesanan', value: '3.4x' },
-      { label: 'Uptime', value: '99.9%' }
+      { label: 'Kecepatan Catat', value: '< 5 Detik' },
+      { label: 'Akurasi Kategori', value: '98.5%' },
+      { label: 'Efisiensi Waktu', value: '80%' }
     ],
-    badgeText: 'Populer di Edutech & F&B',
+    badgeText: 'Solusi Fintech UMKM & Personal',
+    mockupType: 'erp',
+    accentColor: '#0EA5E9'
+  },
+  {
+    id: 'laundry-app',
+    title: 'Laundry App',
+    category: 'Sistem Manajemen Operasional',
+    subtitle: 'Sistem manajemen laundry terpadu untuk pesanan, status cucian, dan laporan bisnis.',
+    description: 'Sistem manajemen laundry untuk mengelola pesanan, status cucian, transaksi, pelanggan, dan laporan operasional dalam satu platform terintegrasi.',
+    fullDetails: [
+      'Pelacakan status cucian real-time (Diterima, Dicuci, Disetrika, Siap Diambil)',
+      'Notifikasi otomatis terkirim langsung ke WhatsApp pelanggan saat cucian rampung',
+      'Modul kasir POS terintegrasi, cetak nota digital, dan dukungan pembayaran QRIS',
+      'Laporan omset harian/bulanan serta analitik performa kerja karyawan laundry'
+    ],
+    techStack: ['React', 'Node.js', 'Tailwind CSS', 'WhatsApp Gateway', 'PostgreSQL'],
+    metrics: [
+      { label: 'Waktu Input Order', value: '1 Menit' },
+      { label: 'Notifikasi Otomatis', value: '100%' },
+      { label: 'Peningkatan Omset', value: '+35%' }
+    ],
+    badgeText: 'Operasional Laundry Modern',
+    mockupType: 'erp',
+    accentColor: '#0EA5E9'
+  },
+  {
+    id: 'santriq',
+    title: 'SantriQ',
+    category: 'Platform Manajemen Pesantren',
+    subtitle: 'Platform manajemen pesantren untuk data santri, pembayaran, dan perizinan.',
+    description: 'Platform manajemen pesantren untuk memudahkan pengelolaan data santri, pembayaran, perizinan, absensi, dan aktivitas administrasi dalam satu sistem digital.',
+    fullDetails: [
+      'Database terpusat biodata santri, riwayat hafalan Al-Qur\'an, dan rekam medis',
+      'Sistem pembayaran SPP / syahriah online dengan invoice otomatis ke wali santri',
+      'E-Perizinan pulang/keluar pondok tervalidasi dengan QR Code & notifikasi orang tua',
+      'Pencatatan absensi harian kegiatan pondok dan rekap kehadiran real-time'
+    ],
+    techStack: ['React', 'TypeScript', 'Node.js', 'PostgreSQL', 'Tailwind CSS'],
+    metrics: [
+      { label: 'Tertib Pembayaran', value: '+92%' },
+      { label: 'Digitalisasi Izin', value: '100%' },
+      { label: 'Waktu Rekap Data', value: '10x Lebih Cepat' }
+    ],
+    badgeText: 'Digitalisasi Lembaga Pesantren',
     mockupType: 'brochure',
-    accentColor: '#d4ff00'
+    accentColor: '#0EA5E9'
   },
   {
-    id: 'vaneshub',
-    title: 'Vaneshub',
-    category: 'Manajemen Kos & Panahan',
-    subtitle: 'Aplikasi manajemen properti kos & scoring panahan otomatis.',
-    description: 'Platform manajemen ganda yang menyajikan dashboard pemantauan sewa kos-kosan (tagihan air/listrik/sewa) serta modul scoring turnamen olahraga panahan real-time.',
+    id: 'rental-management',
+    title: 'Rental Management',
+    category: 'Sistem Manajemen Rental & Armada',
+    subtitle: 'Integrasi operasional armada kendaraan, reservasi, jadwal servis, dan laporan.',
+    description: 'Sistem manajemen rental untuk mengintegrasikan operasional kendaraan, pemesanan, transaksi, inventaris, perawatan, dan laporan bisnis secara real-time.',
     fullDetails: [
-      'Sistem otomatis penagihan sewa bulanan kos via WhatsApp bot',
-      'Pencatatan pembayaran, sisa kamar, dan laporan keungan pemilik kos',
-      'Modul Digital Target Scoring untuk turnamen panahan nasional',
-      'Leaderboard real-time dengan grafik akurasi bidikan'
+      'Kalender ketersediaan armada kendaraan real-time untuk mencegah double booking',
+      'Sistem reservasi online mandiri dengan verifikasi berkas identitas penyewa',
+      'Pengingat otomatis jadwal perawatan berkala, servis rutin, dan pajak armada',
+      'Laporan arus kas, laba rugi per armada, dan utilisasi kendaraan secara akurat'
     ],
-    techStack: ['TypeScript', 'Express', 'SQLite/Postgres', 'WebSockets', 'Recharts'],
+    techStack: ['React', 'Express API', 'PostgreSQL', 'Tailwind CSS', 'PWA'],
     metrics: [
-      { label: 'Otomatisasi Tagihan', value: '100%' },
-      { label: 'Akurasi Scoring', value: '99.99%' },
-      { label: 'Penghematan Waktu', value: '15 Jam/mgg' }
+      { label: 'Cegah Double Book', value: '100%' },
+      { label: 'Utilisasi Armada', value: '+40%' },
+      { label: 'Kecepatan Reservasi', value: '< 2 Menit' }
     ],
-    badgeText: 'Solusi Properti & Olahraga',
-    mockupType: 'vaneshub',
-    accentColor: '#536600'
+    badgeText: 'Solusi Rental & Transportasi',
+    mockupType: 'erp',
+    accentColor: '#0EA5E9'
   },
   {
-    id: 'foto-produk-ai',
-    title: 'Foto Produk AI',
-    category: 'AI Generative Tool',
-    subtitle: 'Aplikasi foto produk berbasis AI generated image otomatis.',
-    description: 'Studio foto virtual cerdas yang mengubah foto mentah produk UMKM menjadi materi promosi profesional berkelas studio studio photography dalam hitungan detik.',
+    id: 'internal-system',
+    title: 'Internal System',
+    category: 'Sistem Informasi Perusahaan',
+    subtitle: 'Digitalisasi administrasi dokumen, approval form, dan pemantauan aktivitas tim.',
+    description: 'Sistem informasi internal perusahaan untuk mendigitalisasi proses administrasi, pengelolaan dokumen, formulir operasional, dan monitoring aktivitas kerja.',
     fullDetails: [
-      'Ganti background foto produk dengan AI studio lighting secara instan',
-      'Pilihan tema visual: Minimalist, Nature, Luxury, Coffee Shop, Modern Studio',
-      'Ekspor HD siap pakai untuk e-commerce (Tokopedia, Shopee, Instagram)',
-      'Penghematan biaya fotografi hingga 90% bagi pemilik usaha'
+      'Workflow persetujuan (approval) berjenjang paperless dengan tanda tangan digital',
+      'Repositori dokumen perusahaan terenkripsi dengan pembagian hak akses bertingkat',
+      'Monitoring penugasan kerja harian, presensi online, dan catatan progres divisi',
+      'Dashboard analitik produktivitas dan KPI operasional terpusat'
     ],
-    techStack: ['Gemini Image AI', 'React', 'Canvas API', 'Node.js Engine', 'Tailwind'],
+    techStack: ['React', 'Node.js', 'PostgreSQL', 'Tailwind CSS', 'REST API'],
     metrics: [
-      { label: 'Waktu Generate', value: '< 5 Detik' },
-      { label: 'Penghematan Biaya', value: '90%' },
-      { label: 'Variasi Background', value: '500+' }
+      { label: 'Efisiensi Administrasi', value: '+75%' },
+      { label: 'Sistem Paperless', value: '95%' },
+      { label: 'Kecepatan Approval', value: '4x Lebih Cepat' }
     ],
-    badgeText: 'Inovasi AI Terdepan',
-    mockupType: 'ai-photo',
-    accentColor: '#caf300'
-  },
-  {
-    id: 'hotel-booking-system',
-    title: 'Direct Hotel Booking System',
-    category: 'Hospitality Solution',
-    subtitle: 'Sistem reservasi kamar hotel mandiri bebas komisi OTA.',
-    description: 'Engine pemesanan kamar hotel langsung yang terhubung dengan kalender ketersediaan, payment gateway lokal, WhatsApp invoice, dan laporan okupansi bulanan.',
-    fullDetails: [
-      'Form reservasi instan bebas komisi 15-20% OTA pihak ketiga',
-      'Integrasi Payment Gateway (QRIS, VA Bank, Credit Card)',
-      'Kalender ketersediaan real-time & manajemen tipe kamar/suasana',
-      'Notifikasi konfirmasi check-in & E-voucher otomatis ke tamu via WhatsApp'
-    ],
-    techStack: ['React', 'Express API', 'Midtrans/Xendit', 'Tailwind', 'PWA'],
-    metrics: [
-      { label: 'Margin Profit Hotel', value: '+18%' },
-      { label: 'Kecepatan Booking', value: '45 Detik' },
-      { label: 'Komisi Pihak Ke-3', value: '0%' }
-    ],
-    badgeText: 'Khusus Sektor Perhotelan',
-    mockupType: 'hotel',
-    accentColor: '#d4ff00'
+    badgeText: 'Enterprise Digital System',
+    mockupType: 'erp',
+    accentColor: '#0EA5E9'
   }
 ];
 
