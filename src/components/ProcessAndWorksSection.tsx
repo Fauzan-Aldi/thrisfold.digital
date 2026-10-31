@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { PROCESS_STEPS, PORTFOLIO_PROJECTS } from '../data/landingData';
 import { PortfolioProject, ProcessStep, Language } from '../types';
-import { Plus, X } from 'lucide-react';
+import { Plus, X, ArrowUpRight } from 'lucide-react';
 import { t } from '../data/translations';
 import { ScrollReveal } from './common/ScrollReveal';
 
@@ -21,7 +21,7 @@ const PortfolioList: React.FC = () => {
           <div
             key={project.id}
             onMouseEnter={() => setHoveredId(project.id)}
-            className="group py-6 sm:py-8 flex flex-col gap-2 cursor-default select-none"
+            className="group py-6 sm:py-8 flex items-center justify-between gap-6 cursor-default select-none"
           >
             <div
               className="flex-1 min-w-0"
@@ -72,6 +72,20 @@ const PortfolioList: React.FC = () => {
               >
                 {project.description}
               </p>
+            </div>
+
+            {/* Arrow button dikanan */}
+            <div
+              className="shrink-0 w-10 h-10 sm:w-11 sm:h-11 rounded-full border flex items-center justify-center transition-all duration-300"
+              style={{
+                backgroundColor: isHovered ? '#0EA5E9' : 'transparent',
+                borderColor: isHovered ? '#0EA5E9' : '#c5c9ac',
+                color: isHovered ? '#0d0d0d' : '#888',
+                transform: isHovered ? 'rotate(45deg) scale(1.08)' : 'rotate(0deg) scale(1)',
+                transition: 'all 0.3s cubic-bezier(0.4,0,0.2,1)',
+              }}
+            >
+              <ArrowUpRight size={18} />
             </div>
           </div>
         );
