@@ -119,7 +119,7 @@ export const FooterSection: React.FC<FooterSectionProps> = React.memo(({ onOpenW
           <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#FACC15] text-[#0d0d0d] text-xs font-bold uppercase tracking-widest font-['Geist'] shadow-xs">
             {tr.cta_badge}
           </span>
-          <h2 className="font-['Hanken_Grotesk'] text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white drop-shadow-sm">
+          <h2 className="font-['Hanken_Grotesk'] text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white">
             {tr.cta_heading}
           </h2>
           <p className="font-['Manrope'] text-sm sm:text-lg text-white/80 max-w-2xl mx-auto font-medium leading-relaxed">

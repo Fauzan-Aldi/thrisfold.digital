@@ -84,16 +84,15 @@ export const HeroContent: React.FC<HeroContentProps> = React.memo(({ onOpenWhats
       >
         {/* Main Heading */}
         <div className="text-center mb-5 sm:mb-6">
-          <h1 className="font-['Space_Grotesk'] text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-tight mb-1 sm:mb-2 text-white tracking-tight drop-shadow-sm">
+          <h1 className="font-['Space_Grotesk'] text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-tight mb-1 sm:mb-2 text-white tracking-tight">
             <span>{tr.heading1}</span>
           </h1>
-          <h1 className="font-['Space_Grotesk'] text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-tight tracking-tight drop-shadow-sm text-white">
+          <h1 className="font-['Space_Grotesk'] text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-tight tracking-tight text-white">
             <span 
               className="text-[#FACC15] inline-block font-black"
               key={currentWordIndex} 
               style={{ 
-                animation: 'wordFade 2s ease-in-out',
-                textShadow: '0 0 35px rgba(250, 204, 21, 0.45)'
+                animation: 'wordFade 2s ease-in-out'
               }}
             >
               {words[currentWordIndex]}
