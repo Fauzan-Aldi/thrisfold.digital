@@ -6,26 +6,76 @@ import { t } from '../data/translations';
 import { ScrollReveal } from './common/ScrollReveal';
 
 const PortfolioList: React.FC = () => {
+  const [hoveredId, setHoveredId] = useState<string | null>(null);
+
   return (
-    <div className="divide-y divide-[#c5c9ac]/50">
-      {PORTFOLIO_PROJECTS.map((project) => (
-        <div
-          key={project.id}
-          className="py-6 sm:py-8 flex flex-col gap-2 cursor-default select-none"
-        >
-          <div className="flex flex-wrap items-center gap-3">
-            <h3 className="font-['Hanken_Grotesk'] text-xl sm:text-2xl md:text-3xl font-extrabold text-[#0d0d0d] leading-tight">
-              {project.title}
-            </h3>
-            <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-[#0EA5E9]/15 text-[#0EA5E9] font-['Geist'] uppercase tracking-wider">
-              {project.category}
-            </span>
+    <div
+      className="divide-y divide-[#c5c9ac]/50"
+      onMouseLeave={() => setHoveredId(null)}
+    >
+      {PORTFOLIO_PROJECTS.map((project) => {
+        const isHovered = hoveredId === project.id;
+        const isOther = !!hoveredId && !isHovered;
+
+        return (
+          <div
+            key={project.id}
+            onMouseEnter={() => setHoveredId(project.id)}
+            className="group py-6 sm:py-8 flex flex-col gap-2 cursor-default select-none"
+          >
+            <div
+              className="flex-1 min-w-0"
+              style={{
+                transform: isHovered ? 'translateX(8px)' : 'translateX(0px)',
+                transition: 'transform 0.3s cubic-bezier(0.4,0,0.2,1)',
+              }}
+            >
+              {/* Title & Badge with animated underline */}
+              <div className="flex flex-wrap items-center gap-3">
+                <div className="relative inline-block">
+                  <h3
+                    className="font-['Hanken_Grotesk'] text-xl sm:text-3xl md:text-4xl font-extrabold leading-tight"
+                    style={{
+                      color: isOther ? '#aaa' : '#0d0d0d',
+                      transition: 'color 0.25s ease',
+                    }}
+                  >
+                    {project.title}
+                  </h3>
+                  {/* Underline bar */}
+                  <span
+                    className="block h-[3px] rounded-full bg-[#0EA5E9] mt-1"
+                    style={{
+                      width: isHovered ? '100%' : '0%',
+                      transition: 'width 0.35s cubic-bezier(0.4,0,0.2,1)',
+                    }}
+                  />
+                </div>
+                <span
+                  className="text-[11px] font-bold px-2.5 py-0.5 rounded-full font-['Geist'] uppercase tracking-wider transition-all duration-200"
+                  style={{
+                    backgroundColor: isHovered ? 'rgba(14, 165, 233, 0.2)' : 'rgba(14, 165, 233, 0.1)',
+                    color: isOther ? '#aaa' : '#0EA5E9',
+                  }}
+                >
+                  {project.category}
+                </span>
+              </div>
+
+              {/* Description */}
+              <p
+                className="mt-2 font-['Manrope'] text-sm sm:text-base leading-relaxed max-w-3xl"
+                style={{
+                  color: isOther ? '#aaa' : '#444',
+                  transition: 'color 0.25s ease',
+                }}
+              >
+                {project.description}
+              </p>
+            </div>
           </div>
-          <p className="font-['Manrope'] text-sm sm:text-base text-[#444] leading-relaxed max-w-3xl">
-            {project.description}
-          </p>
-        </div>
-      ))}
+        );
+      })}
     </div>
   );
 };
