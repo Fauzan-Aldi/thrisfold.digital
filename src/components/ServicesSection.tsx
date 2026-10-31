@@ -15,11 +15,11 @@ export const ServicesSection: React.FC<ServicesSectionProps> = React.memo(({ dar
   const tr = t[language].services;
   const serviceIcons = [<Smartphone size={22} />, <PieChart size={22} />, <Sparkles size={22} />, <Building2 size={22} />, <Calendar size={22} />];
   const serviceColors = [
-    { color: '#0EA5E9', textColor: '#0d0d0d', image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBwaJKztO8E-FugmQbxuRkD78d7nzY1lL0Q2vPGrHdzRhDyjxojFNq5awtnQ2zkOFkoPBy_e11o9EP7B5E6syhK-ALdE5TpnO_zsv20Ct42qCdJU4od7EeEnR2cwQcYRea4f0lVEdp1d4pdAE6ZTE9LHfNtiaSbBwcPXyr_LLpWE2g_JUmmPgOvHB7dknDwpM2nzHUG1IAm0RinyKSdJf4o8viLrckjmt0D3s0gsxjzFIfxNK1ubasaEWPdiafHhi4mHoUiK2EeAi8' },
-    { color: '#0EA5E9', textColor: '#f9fbe5', image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80' },
-    { color: '#1a1d10', textColor: '#0EA5E9', image: 'https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=800&q=80' },
-    { color: '#2f3223', textColor: '#f9fbe5', image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80' },
-    { color: '#444932', textColor: '#f9fbe5', image: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&q=80' },
+    { color: '#0EA5E9', textColor: '#ffffff', image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80' },
+    { color: '#1b388e', textColor: '#ffffff', image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80' },
+    { color: '#0d1527', textColor: '#FACC15', image: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=1200&q=80' },
+    { color: '#172554', textColor: '#ffffff', image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1200&q=80' },
+    { color: '#1e293b', textColor: '#ffffff', image: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1200&q=80' },
   ];
   const services = tr.items.map((item, i) => ({
     id: ['website','erp','ai','ecommerce','training'][i],
