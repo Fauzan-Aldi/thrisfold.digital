@@ -61,7 +61,7 @@ export const Navbar: React.FC<NavbarProps> = React.memo(({
         <a href="#home" onClick={(e) => handleSmoothScroll(e, 'home')} className="flex items-center gap-2.5 group">
           <img
             src={scrolled ? '/logo.png' : '/logo-white.png'}
-            alt="bren.digital logo"
+            alt="Bren Digital - Konsultan Digital & Software House"
             className="w-7 h-7 sm:w-8 sm:h-8 object-contain transition-transform duration-300 group-hover:scale-105"
           />
           <span className={`text-2xl font-black font-['Hanken_Grotesk'] tracking-tight transition-colors duration-300 ${

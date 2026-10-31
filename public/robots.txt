@@ -1,0 +1,7 @@
+# robots.txt for https://bren.digital/
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://bren.digital/sitemap.xml
+
