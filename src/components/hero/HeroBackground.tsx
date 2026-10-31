@@ -20,48 +20,83 @@ export const HeroBackground: React.FC<HeroBackgroundProps> = React.memo(() => {
         }}
       />
 
-      {/* Topographic Contour Wave Lines (Vector concept from reference) */}
+      {/* Topographic Contour Wave Lines (Vector concept matching reference exactly) */}
       <svg
-        className="absolute inset-0 w-full h-full pointer-events-none opacity-60"
-        viewBox="0 0 1920 1080"
+        className="absolute inset-0 w-full h-full pointer-events-none opacity-85"
+        viewBox="0 0 1024 488"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         preserveAspectRatio="xMidYMid slice"
       >
+        {/* Sweeping concentric curved arcs matching reference */}
         <path
-          d="M-100 180 C 350 90, 820 260, 1300 170 C 1600 110, 1880 150, 2050 190"
-          stroke="rgba(255, 255, 255, 0.08)"
-          strokeWidth="1.5"
-        />
-        <path
-          d="M-100 290 C 380 200, 860 380, 1360 270 C 1660 200, 1920 260, 2080 300"
-          stroke="rgba(147, 197, 253, 0.12)"
+          d="M 120 -40 C 150 110, 290 220, 520 310 C 730 390, 910 430, 1080 450"
+          stroke="rgba(255, 255, 255, 0.16)"
           strokeWidth="1.2"
         />
         <path
-          d="M-100 430 C 320 340, 800 520, 1320 390 C 1620 310, 1900 370, 2060 420"
-          stroke="rgba(255, 255, 255, 0.09)"
+          d="M 330 -40 C 360 100, 480 200, 680 280 C 860 350, 990 380, 1080 395"
+          stroke="rgba(147, 197, 253, 0.22)"
+          strokeWidth="1.3"
+        />
+        <path
+          d="M 540 -40 C 570 80, 670 170, 830 235 C 960 290, 1040 315, 1080 325"
+          stroke="rgba(255, 255, 255, 0.18)"
           strokeWidth="1.2"
         />
         <path
-          d="M-100 570 C 420 480, 920 660, 1420 530 C 1700 450, 1950 510, 2100 560"
-          stroke="rgba(147, 197, 253, 0.13)"
-          strokeWidth="1.4"
+          d="M 740 -40 C 770 60, 850 130, 970 180 C 1030 205, 1060 215, 1080 220"
+          stroke="rgba(147, 197, 253, 0.20)"
+          strokeWidth="1.2"
         />
+
+        {/* Counter-arcs around top-left */}
         <path
-          d="M-100 710 C 360 620, 880 810, 1380 680 C 1680 600, 1930 670, 2090 710"
-          stroke="rgba(255, 255, 255, 0.08)"
+          d="M -40 160 C 80 175, 220 150, 320 90 C 390 45, 430 -10, 450 -40"
+          stroke="rgba(255, 255, 255, 0.14)"
           strokeWidth="1.2"
         />
         <path
-          d="M-100 860 C 440 760, 960 960, 1460 820 C 1740 740, 1980 800, 2120 850"
-          stroke="rgba(147, 197, 253, 0.11)"
+          d="M -40 280 C 90 290, 230 260, 330 190 C 410 130, 450 60, 470 -40"
+          stroke="rgba(147, 197, 253, 0.18)"
+          strokeWidth="1.2"
+        />
+
+        {/* Horizontal undulating topographic contour lines */}
+        <path
+          d="M -40 60 C 220 78, 480 48, 720 68 C 880 82, 1000 62, 1080 65"
+          stroke="rgba(255, 255, 255, 0.12)"
+          strokeWidth="1.1"
+        />
+        <path
+          d="M -40 120 C 180 138, 460 98, 730 132 C 890 148, 1010 118, 1080 122"
+          stroke="rgba(147, 197, 253, 0.16)"
           strokeWidth="1.2"
         />
         <path
-          d="M-100 990 C 480 890, 1000 1080, 1500 950 C 1780 870, 2010 930, 2150 980"
-          stroke="rgba(255, 255, 255, 0.07)"
+          d="M -40 180 C 170 196, 440 158, 700 188 C 860 204, 1000 172, 1080 176"
+          stroke="rgba(255, 255, 255, 0.14)"
+          strokeWidth="1.1"
+        />
+        <path
+          d="M -40 240 C 210 256, 470 218, 730 242 C 880 258, 1010 228, 1080 232"
+          stroke="rgba(147, 197, 253, 0.18)"
           strokeWidth="1.2"
+        />
+        <path
+          d="M -40 300 C 170 318, 450 278, 720 308 C 880 324, 1000 294, 1080 298"
+          stroke="rgba(255, 255, 255, 0.13)"
+          strokeWidth="1.1"
+        />
+        <path
+          d="M -40 360 C 210 376, 490 338, 750 368 C 900 384, 1010 354, 1080 358"
+          stroke="rgba(147, 197, 253, 0.17)"
+          strokeWidth="1.2"
+        />
+        <path
+          d="M -40 420 C 190 436, 470 398, 730 428 C 890 444, 1000 414, 1080 418"
+          stroke="rgba(255, 255, 255, 0.12)"
+          strokeWidth="1.1"
         />
       </svg>
 
