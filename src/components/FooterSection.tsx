@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { MessageSquare } from 'lucide-react';
 import { t } from '../data/translations';
 import { Language } from '../types';
+import { ScrollReveal } from './common/ScrollReveal';
 
 interface FooterSectionProps {
   onOpenWhatsApp: (note?: string) => void;
@@ -21,7 +22,7 @@ export const FooterSection: React.FC<FooterSectionProps> = React.memo(({ onOpenW
     <>
       {/* PRE-FOOTER CTA */}
       <section className="py-14 lg:py-28 px-4 sm:px-6 lg:px-8 border-t border-[#c5c9ac]/40 bg-[#f9fbe5]">
-        <div className="max-w-4xl mx-auto text-center space-y-4 lg:space-y-6">
+        <ScrollReveal direction="up" duration={800} className="max-w-4xl mx-auto text-center space-y-4 lg:space-y-6">
           <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#0EA5E9] text-[#0d0d0d] text-xs font-bold uppercase tracking-widest font-['Geist']">
             {tr.cta_badge}
           </span>
@@ -40,7 +41,7 @@ export const FooterSection: React.FC<FooterSectionProps> = React.memo(({ onOpenW
               <span>{tr.cta_btn}</span>
             </button>
           </div>
-        </div>
+        </ScrollReveal>
       </section>
 
       {/* FOOTER BAR */}

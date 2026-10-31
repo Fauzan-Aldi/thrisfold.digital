@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { ArrowRight, PieChart, Sparkles, Building2, Smartphone, Calendar } from 'lucide-react';
 import { t } from '../data/translations';
 import { Language } from '../types';
+import { ScrollReveal } from './common/ScrollReveal';
 
 interface ServicesSectionProps {
   darkMode: boolean;
@@ -68,7 +69,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = React.memo(({ dar
         <div className="grid lg:grid-cols-12 gap-8 lg:gap-16 items-center">
 
           {/* Left Text Block */}
-          <div className="lg:col-span-4 space-y-4 lg:space-y-6">
+          <ScrollReveal direction="right" duration={750} className="lg:col-span-4 space-y-4 lg:space-y-6">
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#0EA5E9]/20 text-[#0EA5E9] text-xs font-bold uppercase tracking-widest font-['Geist']">
               {tr.badge}
             </div>
@@ -81,10 +82,10 @@ export const ServicesSection: React.FC<ServicesSectionProps> = React.memo(({ dar
             <p className="hidden lg:block font-['Manrope'] text-xs text-[#666666] italic">
               {tr.hint}
             </p>
-          </div>
+          </ScrollReveal>
 
           {/* Right: Desktop = horizontal accordion, Mobile = vertical stack */}
-          <div className="lg:col-span-8">
+          <ScrollReveal direction="left" delay={150} duration={800} className="lg:col-span-8">
 
             {/* ── DESKTOP: horizontal accordion ── */}
             <div
@@ -224,7 +225,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = React.memo(({ dar
               })}
             </div>
 
-          </div>
+          </ScrollReveal>
         </div>
       </div>
     </section>

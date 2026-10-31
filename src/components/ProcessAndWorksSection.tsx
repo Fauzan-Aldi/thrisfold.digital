@@ -3,6 +3,7 @@ import { PROCESS_STEPS, PORTFOLIO_PROJECTS } from '../data/landingData';
 import { PortfolioProject, ProcessStep, Language } from '../types';
 import { Plus, X, ArrowUpRight } from 'lucide-react';
 import { t } from '../data/translations';
+import { ScrollReveal } from './common/ScrollReveal';
 
 // Mockup images per project
 const PROJECT_IMAGES: Record<string, string> = {
@@ -244,7 +245,7 @@ export const ProcessAndWorksSection: React.FC<ProcessAndWorksSectionProps> = Rea
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-24 items-start">
 
           {/* Left: Label + Heading  sticky hanya di desktop */}
-          <div className="lg:sticky lg:top-24 self-start">
+          <ScrollReveal direction="right" duration={750} className="lg:sticky lg:top-24 self-start">
             <span className="font-['Geist'] text-xs font-bold text-[#0EA5E9] uppercase tracking-widest mb-4 block">
               {tr.badge}
             </span>
@@ -255,10 +256,10 @@ export const ProcessAndWorksSection: React.FC<ProcessAndWorksSectionProps> = Rea
             <p className="mt-4 font-['Manrope'] text-sm sm:text-base text-[#444] leading-relaxed max-w-sm">
               {tr.sub}
             </p>
-          </div>
+          </ScrollReveal>
 
           {/* Right: Accordion Steps */}
-          <div className="divide-y divide-[#c5c9ac]/50">
+          <ScrollReveal direction="left" delay={120} duration={800} className="divide-y divide-[#c5c9ac]/50">
             {PROCESS_STEPS.map((step: ProcessStep) => {
               const isOpen = expandedStep === step.number;
               return (
@@ -298,20 +299,20 @@ export const ProcessAndWorksSection: React.FC<ProcessAndWorksSectionProps> = Rea
                 </div>
               );
             })}
-          </div>
+          </ScrollReveal>
 
         </div>
 
         {/* Portfolio section */}
-        <div id="portfolio" className="mt-16 lg:mt-32">
-          <span className="font-['Geist'] text-xs font-bold text-[#0EA5E9] uppercase tracking-widest mb-6 block">
-            {tr.portfolioBadge}
-          </span>
+        <ScrollReveal direction="up" delay={80} duration={800} className="mt-16 lg:mt-32">
+          <div id="portfolio">
+            <span className="font-['Geist'] text-xs font-bold text-[#0EA5E9] uppercase tracking-widest mb-6 block">
+              {tr.portfolioBadge}
+            </span>
 
-          <PortfolioList />
-
-
-        </div>
+            <PortfolioList />
+          </div>
+        </ScrollReveal>
 
       </div>
     </section>
