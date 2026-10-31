@@ -1,4 +1,5 @@
 import React from 'react';
+import { NeuralNetworkBg } from '../common/NeuralNetworkBg';
 
 interface HeroBackgroundProps {
   mousePosition?: { x: number; y: number };
@@ -20,57 +21,8 @@ export const HeroBackground: React.FC<HeroBackgroundProps> = React.memo(() => {
         }}
       />
 
-      {/* Sweeping arc lines matching Trifolds reference exactly */}
-      <svg
-        className="absolute inset-0 w-full h-full pointer-events-none"
-        viewBox="0 0 1920 1080"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        preserveAspectRatio="xMidYMid slice"
-      >
-        {/* Long sweeping arc from top-left curving down to bottom-right */}
-        <path
-          d="M -100 50 C 200 80, 600 200, 900 450 C 1100 620, 1400 850, 1950 950"
-          stroke="rgba(255, 255, 255, 0.12)"
-          strokeWidth="1"
-          fill="none"
-        />
-        {/* Arc from top-center curving to right edge */}
-        <path
-          d="M 400 -50 C 600 50, 900 250, 1150 500 C 1350 700, 1600 900, 1980 1000"
-          stroke="rgba(255, 255, 255, 0.10)"
-          strokeWidth="1"
-          fill="none"
-        />
-        {/* Arc from mid-top sweeping to far right */}
-        <path
-          d="M 700 -80 C 850 30, 1050 200, 1250 420 C 1400 580, 1650 800, 2000 920"
-          stroke="rgba(255, 255, 255, 0.11)"
-          strokeWidth="1"
-          fill="none"
-        />
-        {/* Tight arc from right-top curving down */}
-        <path
-          d="M 1100 -60 C 1200 60, 1350 250, 1500 480 C 1600 630, 1750 820, 1980 920"
-          stroke="rgba(255, 255, 255, 0.10)"
-          strokeWidth="1"
-          fill="none"
-        />
-        {/* Wide horizontal sweep across bottom third */}
-        <path
-          d="M -100 700 C 300 680, 700 750, 1100 700 C 1400 660, 1700 720, 2000 690"
-          stroke="rgba(255, 255, 255, 0.09)"
-          strokeWidth="1"
-          fill="none"
-        />
-        {/* Gentle arc from left edge mid-height sweeping right and down */}
-        <path
-          d="M -80 350 C 200 370, 500 450, 800 600 C 1050 720, 1400 860, 1950 980"
-          stroke="rgba(255, 255, 255, 0.10)"
-          strokeWidth="1"
-          fill="none"
-        />
-      </svg>
+      {/* Neural Network Pattern */}
+      <NeuralNetworkBg />
 
       {/* Subtle bottom vignette to blend smoothly into the next section */}
       <div 
