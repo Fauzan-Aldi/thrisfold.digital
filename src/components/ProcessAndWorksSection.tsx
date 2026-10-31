@@ -30,36 +30,25 @@ const PortfolioList: React.FC = () => {
                 transition: 'transform 0.3s cubic-bezier(0.4,0,0.2,1)',
               }}
             >
-              {/* Title & Badge with animated underline */}
-              <div className="flex flex-wrap items-center gap-3">
-                <div className="relative inline-block">
-                  <h3
-                    className="font-['Hanken_Grotesk'] text-xl sm:text-3xl md:text-4xl font-extrabold leading-tight"
-                    style={{
-                      color: isOther ? '#aaa' : '#0d0d0d',
-                      transition: 'color 0.25s ease',
-                    }}
-                  >
-                    {project.title}
-                  </h3>
-                  {/* Underline bar */}
-                  <span
-                    className="block h-[3px] rounded-full bg-[#0EA5E9] mt-1"
-                    style={{
-                      width: isHovered ? '100%' : '0%',
-                      transition: 'width 0.35s cubic-bezier(0.4,0,0.2,1)',
-                    }}
-                  />
-                </div>
-                <span
-                  className="text-[11px] font-bold px-2.5 py-0.5 rounded-full font-['Geist'] uppercase tracking-wider transition-all duration-200"
+              {/* Title with animated underline */}
+              <div className="relative inline-block">
+                <h3
+                  className="font-['Hanken_Grotesk'] text-xl sm:text-3xl md:text-4xl font-extrabold leading-tight"
                   style={{
-                    backgroundColor: isHovered ? 'rgba(14, 165, 233, 0.2)' : 'rgba(14, 165, 233, 0.1)',
-                    color: isOther ? '#aaa' : '#0EA5E9',
+                    color: isOther ? '#aaa' : '#0d0d0d',
+                    transition: 'color 0.25s ease',
                   }}
                 >
-                  {project.category}
-                </span>
+                  {project.title}
+                </h3>
+                {/* Underline bar */}
+                <span
+                  className="block h-[3px] rounded-full bg-[#0EA5E9] mt-1"
+                  style={{
+                    width: isHovered ? '100%' : '0%',
+                    transition: 'width 0.35s cubic-bezier(0.4,0,0.2,1)',
+                  }}
+                />
               </div>
 
               {/* Description */}
